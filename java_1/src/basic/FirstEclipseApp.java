@@ -3,7 +3,7 @@ package basic; // 파일 시스템의 폴더 / 클래스를 구분하고 관리.
 /* F2 = 리네임 class명 변경 가능*/
 //자동완성 ctrl + space : 단어(키워드 또는 식별자)와 문장(템플릿 코드)을 자동 완성하는 기능을 제공
 //ctrl+Alt+↑/↓ : 행 복붙	 
-// run : F11\
+// run : F11
 // 행주석
 
 /*
@@ -19,4 +19,3 @@ public class FirstEclipseApp {
 		System.out.println("재미있게 프로그램을 만들어 봐요.");
 	}
 }
-
