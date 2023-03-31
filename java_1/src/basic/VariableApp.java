@@ -40,5 +40,8 @@ public class VariableApp {
 		// 10.0은 int 자료형에 저장할수없는 실수타입이므로 에러 발생. 
 		//int count = 10.0;
 		//System.out.println("count = " + count);
+		
+		
+		
 	}
 }
