@@ -13,14 +13,14 @@ public class GuGuDanExample {
 	public static void main(String[] args) {
 		
 		Scanner scanner = new Scanner(System.in);
+		int i;
 		while(true) {
 			System.out.println("2~9사이의 정수값을 입력하시오.");
-			int i = scanner.nextInt();
-			if(i<=9 || i>=2) break;
+			i = scanner.nextInt();
+			if(i<=9 && i>=2) break;
 			System.out.println("[에러] 잘못입력하셨습니다.");
 		}
 
-		int i = scanner.nextInt();
 		for(int j = 1; j<=9; j++) {
 			System.out.println(i+"*"+j+"="+(i*j));
 		}
