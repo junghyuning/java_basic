@@ -4,7 +4,7 @@ package basic;
 // 피연산자 : 연산자에 의해 계산되는 값
 // 단항연산자(피연산자 : 1개) , 이항연산자(2개)/ 삼항연산자(3개)
 
-public class OperatorApp {
+public class OperatorApp_06 {
 
 	public static void main(String[] args) {
 

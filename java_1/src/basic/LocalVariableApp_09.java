@@ -7,7 +7,7 @@ package basic;
 //멤버변수(인스턴스변수) : class 범위에 선언된 변수
 //전역변수 : 특정 영역 바깥에서 만들어진 변수 but java에는 class 밖에서 변수선언 불가하므로 전역변수는 생성할 수 없다.
 //캡슐화 : 모든것이 class 단위로 하나의 캡슐로 존재해야 함.
-public class LocalVariableApp {
+public class LocalVariableApp_09 {
 
 	public static void main(String[] args) {
 		int num1 = 100;

@@ -1,6 +1,6 @@
 package basic;
 
-public class VariableApp {
+public class VariableApp_03 {
 
 	public static void main(String[] args) {
 		int su; // 변수선언(생성)

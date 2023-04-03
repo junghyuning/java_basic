@@ -1,7 +1,7 @@
 package basic;
 
 //자료형 변환 : 자료형을 '일시적으로' 변환하여 사용
-public class TypeCastApp {
+public class TypeCastApp_05 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

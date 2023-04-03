@@ -1,6 +1,6 @@
 package basic;
 
-public class DataTypeApp {
+public class DataTypeApp_04 {
 
 	public static void main(String[] args) {
 		System.out.println("<<정수형(IntegerType)>>");

@@ -1,7 +1,7 @@
 package basic;
 
 //제어문(Control Statement) : 프로그램의 흐름을 바꾸어주는 문장.
-public class IfApp {
+public class IfApp_07 {
 
 	public static void main(String[] args) {
 		int su = 90;

@@ -10,7 +10,7 @@ package basic; // 파일 시스템의 폴더 / 클래스를 구분하고 관리.
  범위주석
  */
 
-public class FirstEclipseApp {
+public class FirstEclipseApp_01 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

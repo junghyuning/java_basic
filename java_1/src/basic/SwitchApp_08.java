@@ -2,7 +2,7 @@ package basic;
 
 //switch문에서 case의 값은 중복되어서는 안됨.
 //실수값은 switch문에서 비교값으로 사용할 수 없음.
-public class SwitchApp {
+public class SwitchApp_08 {
 
 	public static void main(String[] args) {
 		int choice = 1;

@@ -2,7 +2,7 @@ package basic;
 
 //for : 조건에 의해 명령을 반복 실행
 
-public class ForApp {
+public class ForApp_10 {
 
 	public static void main(String[] args) {
 		//"Java Programming"을 화면에 출력
