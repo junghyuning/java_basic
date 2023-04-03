@@ -1,3 +1,4 @@
+
 package example;
 
 public class ForExample {
@@ -59,10 +60,11 @@ public class ForExample {
 		//    50    51    52     53     54     55     56
 		//    57
 		int begin=36, end=57;
-		for(int i=begin, cnt=1; i<=end ; i++,cnt++) {
-
-			if(cnt%7 != 0) System.out.print(i+"\t");
-			else  System.out.print(i+"\n");
+		int cnt = 0;
+		for(int i=begin  ; i<=end ; i++) { //count 가 0으로 시작해야 for문이 수행완료되었을 때, count = 수행된 횟수 의미하게됨.
+			cnt++;
+			System.out.print(i+"\t");
+			if(cnt%7 == 0)  System.out.println();
 		}
 		
 		

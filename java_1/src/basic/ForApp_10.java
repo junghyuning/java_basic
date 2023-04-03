@@ -64,6 +64,19 @@ public class ForApp_10 {
 		System.out.println(begin+"~"+end+"범위의 정수들의 합계 ="+sum);
 		System.out.println("");
 		
+		
+		//초기식 생략 (이미 인스턴스 변수가 존재하는 경우)
+		int i = 1;
+		for(;i<=4;++i) {  //세미콜론은 써줘야함.
+			System.out.print(i+"\t");
+		}
+		System.out.println("");
+		for(;i>=1;i--) {  //위 for문 수행결과 -> i=5 
+			System.out.print(i+"\t");
+		}
+		
+		//for(;;){}  -> 초기식, 조건식, 증감식이 모두 생략된 무한루프의 for문
+		
 
 		
 	}
