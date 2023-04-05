@@ -12,17 +12,17 @@ import java.util.Scanner;
 //    [결과]합계 = 60
 public class TotalTwoExample {
 	public static void main(String[] args) {
-		
+		Scanner scanner = new Scanner(System.in);
 		int sum = 0;
 		while(true) {
-			System.out.println("정수값 입력[0:종료]");
-			Scanner scanner = new Scanner(System.in);
+			System.out.print("정수값 입력[0:종료] >> ");
+
 			int i = scanner.nextInt();
-			sum += i;
 			if(i==0) break;
+			sum += i;
 		}
 		
-		System.out.println("[결과]합계 = " + sum);
+		System.out.print("[결과]합계 = " + sum);
 		
 	}
 	

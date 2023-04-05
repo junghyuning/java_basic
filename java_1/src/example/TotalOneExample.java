@@ -3,6 +3,7 @@ package example;
 import java.util.Scanner;
 
 //키보드로 정수값을 5번 입력받아 합계를 계산하여 출력하는 프로그램을 작성하세요.
+//반복횟수가 명확 -> for  // 반복횟수 미확정 -> while
 //ex) 1번째 정수값 입력 >> 10
 //    2번째 정수값 입력 >> 20
 //    3번째 정수값 입력 >> 30
@@ -14,9 +15,9 @@ public class TotalOneExample {
 		Scanner scanner = new Scanner(System.in);
 		int sum = 0;
 		for(int i=1; i<=5; i++) {
-			System.out.println("정수의 값을 입력하세요.");
-			int j = scanner.nextInt();
-			sum += j;
+			System.out.print(i+"번째 정수 값 입력 >> ");
+			int num = scanner.nextInt();
+			sum += num;
 		}
 		
 		System.out.println(sum);

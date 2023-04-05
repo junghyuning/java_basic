@@ -15,7 +15,7 @@ public class GuGuDanExample {
 		Scanner scanner = new Scanner(System.in);
 		int i;
 		while(true) {
-			System.out.println("2~9사이의 정수값을 입력하시오.");
+			System.out.print("단 입력[2~9] >> ");
 			i = scanner.nextInt();
 			if(i<=9 && i>=2) break;
 			System.out.println("[에러] 잘못입력하셨습니다.");
