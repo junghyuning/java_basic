@@ -1,9 +1,8 @@
 package oop;
 
-import java.util.Scanner;
 
 //실행이 목적인 클래스 - main 메서드 반드시 있어야함.
-public class MethodApp {
+public class MethodApp_03 {
 	//프로그램 시작시, JVM이 자동 호출하는 메서드 -> 메인으로 실행되는 메서드 다른 메서드들을 main으로 참조해와 실행시키는 역할.
 	public static void main(String[] args) {
 
@@ -62,8 +61,7 @@ public class MethodApp {
 		System.out.println("합계 = " + method.sumThree(10, 20, 30, 40, 50));
 		System.out.println("==============================================================================================");
 
-		
-		
+
 		
 		
 	}
