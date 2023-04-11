@@ -26,7 +26,5 @@ public class MemberApp {
 		Member member2 = new Member("xyz258", "임꺽정", "xyz258@itwill.xyz");  //매개변수 값이 필요한 생성자
 		member2.display();
 		
-		
-		
 	}
 }
