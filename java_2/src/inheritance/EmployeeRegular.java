@@ -27,7 +27,14 @@ public class EmployeeRegular extends Employee {
 		return annualSalary/12;
 	}
 
-
+	/*
+	//부모클래스의 final 메소드를 오버라이드 선언하여 에러 발생
+	 * final은 오버라이딩 불가!
+	@Override
+	public int computeIncentive() {
+		return 100000000;
+	}
+	*/
 	
 	
 
