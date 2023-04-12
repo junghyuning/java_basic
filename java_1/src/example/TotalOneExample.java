@@ -19,7 +19,7 @@ public class TotalOneExample {
 			int num = scanner.nextInt();
 			sum += num;
 		}
-		
+		scanner.close();
 		System.out.println(sum);
 
 	}

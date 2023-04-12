@@ -23,7 +23,7 @@ public class TotalTwoExample {
 		}
 		
 		System.out.print("[결과]합계 = " + sum);
-		
+		scanner.close();
 	}
 	
 }

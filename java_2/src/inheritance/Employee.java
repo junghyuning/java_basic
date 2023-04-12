@@ -79,4 +79,5 @@ public abstract class Employee { // 추상 클래스
 		return (int) (computePay() * INCENTIVE_RATE);
 	}
 
+	
 }

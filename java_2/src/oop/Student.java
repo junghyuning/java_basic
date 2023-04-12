@@ -55,7 +55,7 @@ public class Student {
 	}
 	
 	public void display() {
-		System.out.print("["+name+"]님의 성적 >> ");
+		System.out.print(num+"번 ["+name+"]님의 성적 >> ");
 		System.out.println("kor = " +kor+", eng = "+eng+", tot = "+tot);
 	}
 	

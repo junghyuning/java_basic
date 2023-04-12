@@ -1,6 +1,5 @@
 package basic;
 
-import java.util.Iterator;
 
 // java 자료형 : 원시형 + 참조형
 // 원시형 : 값을 표현하기 위한 자료형 (8가지): byte short int long char float double boolean

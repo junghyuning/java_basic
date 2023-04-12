@@ -64,5 +64,6 @@ public class RpaGameApp_17 {
 			System.out.println("[메세지] 사용자가 컴퓨터에게 한번도 이기지 못했습니다.");
 		}
 		else System.out.println("[메세지] 사용자가 컴퓨터에게 "+count+"번 이겼습니다.");
+		scanner.close();
 	}
 }

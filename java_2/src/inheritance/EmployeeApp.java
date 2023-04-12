@@ -1,5 +1,7 @@
 package inheritance;
 
+
+
 //사원 급여관리 프로그램
 public class EmployeeApp {
 
@@ -41,6 +43,9 @@ public class EmployeeApp {
 			 * }
 			 */
 		}
+		
+		if(employee1.equals(employee2)) System.out.println(true);
+		else System.out.println(false);
 		
 		System.out.println("==========================================================================");
 	}

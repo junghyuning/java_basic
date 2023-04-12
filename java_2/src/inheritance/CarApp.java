@@ -1,6 +1,6 @@
 package inheritance;
 
-import java.util.jar.Attributes.Name;
+
 
 public class CarApp {
 	public static void main(String[] args) {
