@@ -11,7 +11,7 @@ public class EmployeeApp {
 		
 		Employee employee1 = new EmployeeRegular();
 		Employee employee2 = new EmployeePartTime();
-		Employee employee3 = new EmployeeContract();
+//		Employee employee3 = new EmployeeContract();
 		
 		Employee[] empArray = new Employee[5];  // 배열은 상관x
 		

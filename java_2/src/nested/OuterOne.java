@@ -21,9 +21,9 @@ public class OuterOne {  //외부클래스
 		this.outerNum = outerNum;
 	}
 	
-	public void outerDisplay() {
+	public void outerDisplay() {  //
 		System.out.println("outerNum = " + outerNum);
-		//outer클래스는 innerclass의 필드or 메서드 직접적인 접근 불가
+		//outer클래스는 innerclass의 필드or 메서드 직접적인 접근 불가  //당연함.. 지역변수느낌임..
 //		System.out.println("innerNum = "+ innerNum);
 //		innerDisplay();
 		
@@ -34,8 +34,8 @@ public class OuterOne {  //외부클래스
 	}
 
 	
-	//일반 내부클래스 : 컴파일 시, [외부class.내부class.class] 파일로 제공됨.
-	public class InnerOne {
+	//일반 내부클래스(객체내부클래스 = 객체의 멤버로 취급) : 컴파일 시, [외부class.내부class.class] 파일로 제공됨.
+	public class InnerOne {    //class는 원칙적으로 private를 사용할 수 없지만, 내부클래스의 경우 사용 가능(but 잘 사용하진 않음)
 		private int innerNum;
 		
 		public InnerOne() {
@@ -57,7 +57,7 @@ public class OuterOne {  //외부클래스
 		public void innerDisplay() {
 			System.out.println("innerNum = "+ innerNum);
 			
-			//객체내부클래스에서는 외부클래스의 필드or 메서드를 접근제한자에 상관없이 참조 가능.
+			//객체내부클래스에서는 외부클래스의 필드or 메서드를 접근제한자에 상관없이 직접 참조 가능.  // 당연함.. 인스턴스변수를 인스턴스멤버가 왜 못사용하겠음?
 			System.out.println("outerNum = "+ outerNum);  //private로 선언된 외부클래스의 변수도 사용 가능.
 			outerDisplay();  //외부클래스의 메서드 가져다쓰기 가능
 		}
