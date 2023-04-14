@@ -5,7 +5,7 @@ public class Exercise6_22 {
 	public static boolean isNumber(String str){
 		boolean isNumber = false;  // 숫자면 true, 숫자가 아니면 false
 		for(int i=0; i<str.length();i++) {
-			if(str.length()!=0 && str.charAt(i) >='0' && str.charAt(i) <='9') 
+			if(str.length()!=0 && str!=null && str.charAt(i) >='0' && str.charAt(i) <='9') 
 				isNumber = true;
 			else isNumber = false;
 		}
