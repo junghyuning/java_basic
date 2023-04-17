@@ -1,6 +1,5 @@
 package xyz.itwill.lang;
 
-import java.net.SocketOption;
 
 public class StringApp {
 	public static void main(String[] args) {
