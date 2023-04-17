@@ -47,7 +47,7 @@ public class ConsoleInput {
 	}
 
 	public void split(String input) {
-		
+		for(String[] splitInput : input.split("+")) 
 	}
 
 }
