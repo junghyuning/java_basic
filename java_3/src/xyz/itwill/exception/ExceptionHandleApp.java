@@ -14,7 +14,7 @@ public class ExceptionHandleApp {
 		// 배열 요소의 첨자가 사용범위를 벗어난 경우 ArrayIndexOutOfBoundsException 발생
 		try { // 예외객체 생성
 			for (int i = 0; i <= array.length; i++) {
-				System.out.println("array[" + i + "]" + array[i]);// 예외발생 - 예외객체 생성
+				System.out.println("array[" + i + "]" + array[i]);// 예외발생 - 예외객체 생성 => 해당 catch 블럭으로 이동함.
 			}
 			System.out.println("[메세제]프로그램이 정상적으로 실행 되었습니다.");
 		} catch (ArrayIndexOutOfBoundsException e) { // 예외객체 전달받음 -> 참조변수에 저장
