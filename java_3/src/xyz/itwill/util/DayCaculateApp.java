@@ -27,9 +27,7 @@ public class DayCaculateApp {
 		} catch (Exception e) {
 			System.out.println("[error] 예기치못한 오류");
 		}
-		long today = System.currentTimeMillis();
-		long birthTime = birthDate.getTime();
-		System.out.println("[결과] 태어난지"+((today-birthTime)/1000/86400)+"일 지났습니다.");	
+		System.out.println("[결과] 태어난지"+((System.currentTimeMillis()-birthDate.getTime())/1000/86400)+"일 지났습니다.");		
 	}
 	
 	
