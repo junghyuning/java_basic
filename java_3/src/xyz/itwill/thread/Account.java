@@ -22,7 +22,7 @@ public class Account {
 		this.balance = balance;
 	}
 	
-	//입금처리 메서드
+	//입금처리 메서드 // 메서드 영역 전체를 동기화.
 	public synchronized void deposit(String name, int amount ) {
 		balance += amount;
 		System.out.println("[Notify] "+ name + "님, 입금 : " + amount+", 잔액 : "+ balance );

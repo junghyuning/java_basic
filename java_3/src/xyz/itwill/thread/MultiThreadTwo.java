@@ -7,7 +7,7 @@ public class MultiThreadTwo implements Runnable{
 			System.out.print(i);
 //			try {
 //				Thread.sleep(500);
-//			} catch (InterruptedException e) {
+//			} catch (InterruptedExceptiontion e) {
 //				// TODO Auto-generated catch block
 //				e.printStackTrace();
 //			}

@@ -40,9 +40,9 @@ public class AccountUser extends Thread{
 		this.account.deposit(userName, 5000);
 		
 		
-//		2. 메서드 전체를 동기화하지 않고 영역을 임계화 하는 방식.
+//		2. 메서드 전체를 동기화하지 않고 영역을 임계화 하는 방식. // 호출할 때 동기화.
 		synchronized (account) {
-			this.account.withDraw(userName, 5000);
+			this.account.withDraw(userName, 5000);  // 호출문을 동기화하여 한번에 이 메서드를 호출할 수 있는 것이 1개 뿐임.
 		}
 		
 	}
