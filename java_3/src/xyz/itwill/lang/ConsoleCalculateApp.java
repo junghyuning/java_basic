@@ -2,7 +2,6 @@ package xyz.itwill.lang;
 
 import java.util.Scanner;
 
-import javax.naming.spi.DirStateFactory.Result;
 
 //키보드로 사칙 연산식을 입력받아 연산결과를 계산하여 출력하는 프로그램 작성
 //ex) 연산식 입력 >> 20 + 10 -> 입력받은 숫자를 '20' /'+' /'10' => 각각 피연산자, 연산자, 피연산자로 분류하는것이 중요.(substring)
