@@ -5,12 +5,13 @@ import java.util.Calendar;
 //현재 년월에 대한 달력을 출력하는 프로그램 작성
 public class CurrentCalendarApp {
 	public static void main(String[] args) {
-		Calendar cal = Calendar.getInstance();
+		Calendar cal = Calendar.getInstance();  //Calendar cal => 내가 사용하고자 하는 calendar 정보를 가진 참조변수
+		//Calendar.getInstance()를 통해 이미 프로그램에 저장돼있는 달력 data를 가리키게 됨.
 		
 		//Calendar 객체에 날짜와 시간 중 [n일]을 [1일]로 변경
-		cal.set(Calendar.DATE, 1);
+		cal.set(Calendar.DATE, 1);  //나의 달력의 날짜를 setting했음
 		
-		int week = cal.get(Calendar.DAY_OF_WEEK); //2023/04/01 -> 요일
+		int week = cal.get(Calendar.DAY_OF_WEEK); //2023/04/01 -> 요일  // 결국 진짜 정보는 Calendar에 저장돼있으므로 참조변수가 가리키는 Calendar 인터페이스를 통해 정보를 가지고 와야함.)
 		System.out.println(week);  //1=일요일, 2=월요일, 3= 화요일, ... , 7 = 토요일
 		
 		System.out.println();
