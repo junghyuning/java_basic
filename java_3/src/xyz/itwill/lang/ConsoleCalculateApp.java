@@ -16,7 +16,7 @@ public class ConsoleCalculateApp {
 
 		System.out.print("연산식 입력 >> ");
 		String operation = scanner.nextLine().replace(" ", "");
-
+		scanner.close();
 		// 연산식에서 검색할 연산자가 저장된 문자열 배열 선언
 		String[] operatorArray = { "*", "/", "+", "-" };
 
@@ -31,7 +31,7 @@ public class ConsoleCalculateApp {
 
 		} //for문종료 : 연산자를 찾은경우 or 아예 찾지못해 끝까지 돌아감.
 		
-		if (index <=0 || index>operation.length()-1) { // 연산자가 없거나, 맨 앞에있거나, 맨 마지막에 있을 시
+		if (index <=0 || index>=operation.length()-1) { // 연산자가 없거나, 맨 앞에있거나, 맨 마지막에 있을 시
 			System.out.print("[error] 연산식을 잘못 입력했습니다.");
 			System.exit(0); // 시스템 종료
 		}
@@ -56,7 +56,7 @@ public class ConsoleCalculateApp {
 		} catch (ArithmeticException e) {
 			// TODO: handle exception
 			System.out.println("[error] 0으로 나눌 수 없습니다.");
-		}catch (Exception e) {
+		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("[error] 프로그램에 예기치 못한 오류가 발생하였습니다.");
 		}
