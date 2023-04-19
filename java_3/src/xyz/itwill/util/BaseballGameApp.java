@@ -3,7 +3,6 @@ package xyz.itwill.util;
 import java.util.Random;
 import java.util.Scanner;
 
-import javax.naming.LinkLoopException;
 
 //난수값(0~9) 3개 제공받음 : 0으로 시작 불가능
 //키보드로 입력받아 맞춤 : 키보드 입력값이 맞지 않는 경우 재입력되도록 작성.
@@ -57,7 +56,7 @@ public class BaseballGameApp {
 				if (num[0] != 0 && num[0] != num[1] && num[1] != num[2]&& num[0] != num[2]) break;  // 입력받은 값의 형식 검증
 				System.out.println("[error] 0으로 시작되거나 중복된 숫자가 존재합니다.");  
 			}
-			
+			scanner.close();
 			//난수값과 입력값을 비교하여 스트라이크와 볼을 구분하여 계산
 			// => 난수값이 저장된 배열의 요소값과 입력값이 저장된 배열의 요소값을 교차 비교
 			for(int i=0;i<dap.length;i++) {//난수값이 저장된 배열 요소를 처리하기 위한 반복문
