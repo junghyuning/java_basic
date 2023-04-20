@@ -14,7 +14,7 @@ public class DecimalFormatApp {
 		DecimalFormat decimalFormat = new DecimalFormat("###,###,##0");
 		System.out.println("");
 		
-//		저장된 패턴정보로 표현
+//		저장된 패턴정보로 표현 : [.,0#$] 사용 가능
 		System.out.println(decimalFormat.format(money)+"원");
 		
 //		getInstance() -> 3자리마다 , 삽입
