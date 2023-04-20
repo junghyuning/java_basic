@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 //순서 저장x // key: 중복x , value : 중복 가능  
-//Key를 통한 검색 속도가 point !!
+//Key를 통한 검색 속도가 point !!   
 //삽입 : put(key,value) // 검색 및 추출 : get(Key) => key의 객체인 value 반환
 public class MapApp {
 	public static void main(String[] args) {
