@@ -11,6 +11,7 @@ public class WantCalendarApp {
 		System.out.println("출력할 연도와 월을 입력하세요.");
 		int year = scanner.nextInt();
 		int month = scanner.nextInt();
+		scanner.close();
 		calendar.set(year, month-1 ,1);
 		int week = calendar.get(Calendar.DAY_OF_WEEK);
 		
@@ -25,7 +26,7 @@ public class WantCalendarApp {
 			System.out.print("      ");
 		}
 		
-		for(int i = 1; i<=calendar.getActualMaximum(calendar.DAY_OF_MONTH) ;i++) {
+		for(int i = 1; i<=calendar.getActualMaximum(Calendar.DAY_OF_MONTH) ;i++) {
 			if(i<=9) {
 				System.out.print("     "+i);
 			} else System.out.print("    "+i);
