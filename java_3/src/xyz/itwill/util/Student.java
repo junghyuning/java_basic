@@ -30,4 +30,10 @@ public class Student {
 	public String toString() {
 		return "학번 = " + num + ", 이름 = " + name;
 	}
+	
+	@Override // 해시코드 오버라이딩
+	public int hashCode() {
+		return super.hashCode();
+	}
+	
 }

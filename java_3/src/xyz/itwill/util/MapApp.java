@@ -31,11 +31,11 @@ public class MapApp {
 		String name = map.get("1000"); // Key가 가진 Value객체를 반환하는 것.
 		System.out.println(name);
 		System.out.println("======================================================");
-		Iterator<String> iteratorKey= map.keySet().iterator();
+		Iterator<String> iteratorKey= map.keySet().iterator();//모든 엔트리의 key값만 뽑아서 set객체에 저장하는 것. // 즉, 키값만 읽어올 것.
 		while (iteratorKey.hasNext()) {
-			String key = iteratorKey.next();
-			String value = map.get(key);
-			System.out.println(key+"="+value);
+			String key = iteratorKey.next(); //iterator 통해 키값만 출력가능
+			String value = map.get(key); // iterator 통해 저장된 키값을통해 value 검색
+			System.out.println(key+"="+value); //key+value 출력
 		}
 		
 		for(String key : map.keySet()) {
@@ -43,7 +43,7 @@ public class MapApp {
 		}
 		System.out.println("====================================================");
 		
-		Iterator<String> iteratorValue = map.values().iterator();
+		Iterator<String> iteratorValue = map.values().iterator();  //value값만 읽어옴.
 		
 		while(iteratorValue.hasNext()) {
 			String value = iteratorValue.next();

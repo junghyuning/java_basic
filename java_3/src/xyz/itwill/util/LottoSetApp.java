@@ -25,6 +25,7 @@ public class LottoSetApp {
 		Arrays.sort(lottoIntegers);
 		
 		System.out.print("행운의 숫자 =" + Arrays.toString(lottoIntegers));
+		
 	}
 
 }
