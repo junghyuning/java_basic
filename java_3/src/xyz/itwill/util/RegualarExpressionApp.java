@@ -3,6 +3,8 @@ package xyz.itwill.util;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
+
+//정규표현식 test 사이트도 있음.
 //정규표현식 : 메타문자(Mera Character), 회피문자(Escape Character) 등을 사용하여 일정한 규칙의 문자열을 표현하는 방법 
 //=> 사용자 입력값에 대한 검증을 할 때 사용할 것.
 

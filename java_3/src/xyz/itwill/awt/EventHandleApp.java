@@ -39,6 +39,8 @@ public class EventHandleApp extends Frame{
 		exit.setFont(new Font(Font.SANS_SERIF,Font.BOLD,30));
 		add(exit);
 		
+		//버튼을 누르는 행위 = 이벤트발생 -> 해당 이벤트를 처리할 메서드 필요함.
+		//=> 이벤트 처리 메서드 작성(해당소스에서는 EventHandle implements ActionListenr)
 		//이벤트 처리 객체 등록
 		exit.addActionListener(new EventHandle());
 		
@@ -54,11 +56,11 @@ public class EventHandleApp extends Frame{
 	}
 }
 
-//이벤트 처리기능을 제공하기 위한 클래스 - Listener 인터페이스를 상속 받음.
-class EventHandle implements ActionListener{
+//이벤트 처리기능을 제공하기 위한 클래스 - Listener 인터페이스를 상속 받음.  // 별개의 클래스로 작성
+class EventHandle implements ActionListener{  //Listener 종류 -> ActionListener, MouseListener, KeyListendr, ...
 
 	@Override
-	public void actionPerformed(ActionEvent e) {  // 이벤트 처리명령을 작성하기 위한 메서드
+	public void actionPerformed(ActionEvent e) {  // 이벤트 처리명령을 작성하기 위한 메서드 => 반드시 actionPerformed 메서드를  오버라이딩 해야함.
 		// TODO Auto-generated method stub
 		System.exit(0);
 	}

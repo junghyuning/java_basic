@@ -20,6 +20,8 @@ public class MenuBarApp extends Frame {
 		super(title);
 		
 		MenuBar menuBar = new MenuBar();
+//		MenuBar menuBar2 = new MenuBar();
+		
 		Menu file = new Menu("File");
 		Menu help = new Menu("Help");
 		
@@ -43,6 +45,8 @@ public class MenuBarApp extends Frame {
 		help.add(info);
 		
 		setMenuBar(menuBar);
+//		setMenuBar(menuBar2);
+		
 		
 		TextArea textArea = new TextArea();
 		textArea.setFont(new Font(Font.SANS_SERIF,Font.PLAIN,20));
