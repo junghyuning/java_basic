@@ -12,8 +12,8 @@ public class FileCopy {
 			
 			int data = 0;
 			
-			while((data=fis.read())!=-1) {  // read()메서드 : 읽어온 값 (1byte로 0~255 사이의 값 반환) or -1(없을시,) 반환
-				fos.write(data); //읽어온 값(byte정수)를 fos에 저장
+			while((data=fis.read())!=-1) {  // read()메서드 : 읽어온 값 (1byte 값을 int로 변환하여 0~255 사이의 값 반환) or -1(없을시,) 반환
+				fos.write(data); //읽어온 값(int 정수)를 fos에 저장
 				System.out.println(data);
 			}
 			fis.close();
