@@ -10,6 +10,7 @@ public class ObjectInputStreamApp {
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		
 		ObjectInputStream in = new ObjectInputStream(new FileInputStream("c:/data/object.txt"));
+		//Object 타입으로 저장되므로 형변환이 필수임.
 		String string = (String)in.readObject();
 		Date date = (Date) in.readObject();
 		@SuppressWarnings("unchecked")

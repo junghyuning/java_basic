@@ -11,7 +11,7 @@ public class ByteStreamApp {
 
 		while (true) {
 			// System.in
-			readByte = System.in.read();
+			readByte = System.in.read(); //System.in= "키보드" 입력스트림
 //			EOF(Ctrl+z) 전달시, 반복문이 종료 됨.
 			if (readByte == -1)
 				break;

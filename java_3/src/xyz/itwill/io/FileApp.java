@@ -16,7 +16,7 @@ public class FileApp {
 		File fileOne = new File("c:\\data");  // 파일 객체 생성. (파일 생성)
 		
 		if(fileOne.exists()) {
-			System.out.println("c:\\data 폴더에 이미 존재합니다.");
+			System.out.println("c:\\data 폴더가 이미 존재합니다.");
 		} else {
 			fileOne.mkdir();
 			System.out.println("c:\\data 폴더를 생성하였습니다.");
