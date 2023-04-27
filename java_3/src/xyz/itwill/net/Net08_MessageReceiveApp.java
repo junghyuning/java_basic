@@ -1,6 +1,5 @@
 package xyz.itwill.net;
 
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;

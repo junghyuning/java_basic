@@ -28,7 +28,7 @@ public class Net03_TimeServerApp {
 			while (true) {
 				
 				//연결요청이 들어왔을시, 클라이언트와 값을 주고받을수 있는 Socket 객체를 반환하는 메서드. ServerScoket.accept() => 해당 객체를 Socket 타입의 참조변수로 가리킴.
-				Socket socket = ntpServer.accept();
+				Socket socket = ntpServer.accept();  //요청을 한 클라이언트의 정보를 가진 객체를 생성하는건 맞음 but 포트를 공유하거나 그런것은 아님 서버는 프라이빗 포트를 사용함.
 				/**
 				//Socket.getOutputStream() : Socket 객체의 출력스트림을 반환하는 메서드
 				OutputStream stream = socket.getOutputStream(); 
