@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Date;
 
 
-public class ObjectOutputStreamApp {
+public class Io11_ObjectOutputStreamApp {
 	public static void main(String[] args) throws IOException {
 		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("c:/data/object.txt"));
 		

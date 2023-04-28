@@ -4,7 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class FileWriterApp {
+public class Io07_FileWriterApp {
 	public static void main(String[] args) throws IOException {
 		InputStreamReader isr = new InputStreamReader(System.in);
 		

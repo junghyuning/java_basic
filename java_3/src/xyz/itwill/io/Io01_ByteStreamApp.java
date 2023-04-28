@@ -3,7 +3,7 @@ package xyz.itwill.io;
 import java.io.IOException;
 
 //키보드로 원시데이터 입력받아 모니터에 전달하여 출력함.
-public class ByteStreamApp {
+public class Io01_ByteStreamApp {
 	public static void main(String[] args) throws IOException {
 		System.out.println("[message] Press the KeyBoard. [exit : Ctrl + z]");
 		// 입력값을 저장할 변수

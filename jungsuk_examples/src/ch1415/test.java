@@ -13,16 +13,16 @@ public class test {
 		ByteArrayOutputStream output = new ByteArrayOutputStream();
 		
 		int data= 0;
-		data = input.read();
-		output.write(data);
-		outSrc = output.toByteArray();
-		System.out.println(Arrays.toString(outSrc));
-//		while((data = input.read())!=-1) {  // 스트림의 내용을 1바이트씩 읽어옴. 읽어올 내용이 없으면 -1 반환
-//			output.write(data); //주어진 배열 b의 내용을 모두 출력소스에 씀 
-//		}
-//		outSrc = output.toByteArray(); //outSrc 배열에 output Stream의 내용 반환
-//		
+//		data = input.read();
+//		output.write(data);
+//		outSrc = output.toByteArray();
 //		System.out.println(Arrays.toString(outSrc));
+		while((data = input.read())!=-1) {  // 스트림의 내용을 1바이트씩 읽어옴. 읽어올 내용이 없으면 -1 반환
+			output.write(data); //주어진 배열 b의 내용을 모두 출력소스에 씀 
+		}
+		outSrc = output.toByteArray(); //outSrc 배열에 output Stream의 내용 반환
+		
+		System.out.println(Arrays.toString(outSrc));
 	}
 
 }

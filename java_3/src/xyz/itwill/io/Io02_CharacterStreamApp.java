@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
-public class CharacterStreamApp {
+public class Io02_CharacterStreamApp {
 	public static void main(String[] args) throws IOException{
 		System.out.println("[message] press the keyboard [exit: ctrl+z]");
 		

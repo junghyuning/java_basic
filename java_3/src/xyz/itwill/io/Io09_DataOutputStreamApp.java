@@ -7,7 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 
-public class DataOutputStreamApp {
+public class Io09_DataOutputStreamApp {
 	public static void main(String[] args) throws IOException{
 		
 		DataOutputStream out = new DataOutputStream(new FileOutputStream("c:/data/data.txt"));

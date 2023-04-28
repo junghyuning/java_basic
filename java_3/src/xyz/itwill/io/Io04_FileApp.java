@@ -7,7 +7,7 @@ import java.io.IOException;
 
 //파일 : 값 저장
 //디렉토리 : 파일을 저장(폴더 / 경로)
-public class FileApp {
+public class Io04_FileApp {
 	public static void main(String[] args) throws IOException{
 		
 		//경로표현방법 1.절대경로,  2.상대경로

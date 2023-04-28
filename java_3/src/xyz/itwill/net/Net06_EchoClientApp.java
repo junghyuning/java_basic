@@ -17,7 +17,7 @@ public class Net06_EchoClientApp {
 		String message = in.readLine();
 		
 		try {
-			Socket socket = new Socket("192.168.13.1",3000);
+			Socket socket = new Socket("192.168.13.3",3000);
 			/*  Buffered Writer 사용 방법
 			BufferedWriter out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 			//서버의 소켓과 연결된 출력스트림을 이용 -> 문자열(메세지) 전달

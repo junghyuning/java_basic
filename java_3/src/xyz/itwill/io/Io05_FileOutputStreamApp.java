@@ -3,7 +3,7 @@ package xyz.itwill.io;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class FileOutputStreamApp {
+public class Io05_FileOutputStreamApp {
 	public static void main(String[] args) throws IOException {
 		System.out.println("[message] press the keyBoard [ exit : ctrl + x ]");
 		

@@ -14,7 +14,7 @@ public class TcpIpServer {
 		ServerSocket serverSocket = null;
 		
 		try {
-			serverSocket = new ServerSocket(7777);
+			serverSocket = new ServerSocket(2222);
 			
 			System.out.println(getTime() +"서버가 준비되었습니다.");
 		} catch (IOException e) {
@@ -28,6 +28,8 @@ public class TcpIpServer {
 				//socket.getInetAddress()
 				System.out.println(getTime()+socket.getInetAddress()+"로부터 연결요청이 들어왔습니다.");
 				
+				
+				System.out.println("getport(): " + socket.getPort() + " / getLocalPort() : "+socket.getLocalPort());
 				//소켓의 출력스트림을 얻는 것.
 				OutputStream out = socket.getOutputStream();
 				DataOutputStream dos = new DataOutputStream(out);

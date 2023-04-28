@@ -6,7 +6,7 @@ import java.io.ObjectInputStream;
 import java.util.Date;
 import java.util.List;
 
-public class ObjectInputStreamApp {
+public class Io10_ObjectInputStreamApp {
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		
 		ObjectInputStream in = new ObjectInputStream(new FileInputStream("c:/data/object.txt"));

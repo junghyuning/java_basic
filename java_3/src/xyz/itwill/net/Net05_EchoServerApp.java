@@ -17,9 +17,10 @@ public class Net05_EchoServerApp {
 			
 			Socket socket = echoServer.accept();
 			
-			//소켓의 입력스트림을 제공받아 대략의 문자데이터를 얻어올 수 있는 입력스트림을 확장.
+			//소켓의 입력스트림을 제공받아 대량의 문자데이터를 얻어올 수 있는 입력스트림을 확장.
 			BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			
+			//getInetAddress(): hostname + ip  // getHostAddress : ip만 반환
 			System.out.println("["+socket.getInetAddress().getHostAddress()+"]"+in.readLine());
 		} catch (IOException e) {
 			System.out.println("[error] Server get NetWork Problems.");

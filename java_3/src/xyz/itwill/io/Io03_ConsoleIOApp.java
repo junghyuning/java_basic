@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Calendar;
 
 //키보드로 이름과 태어난 년도를 입력받아 이름과 나이를 계산하여 출력하는 프로그램
-public class ConsoleIOApp {
+public class Io03_ConsoleIOApp {
 	public static void main(String[] args) throws IOException {
 		//Java 프로그램 개발을 위해 기본적으로 제공되는 키보드 입력스트림 (System.in)을 이용
 		//-> InputStreamReader 클래스로 확장하고 -> Reader 객체 전달 -> Buffered Reader 클래스의 입력스트림으로 확장 
