@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
 
-public class Ex21_StandardIO_set {
+public class Ex22_StandardIO_set {
 	public static void main(String[] args) {
 		PrintStream ps = null;
 		FileOutputStream fos = null;
