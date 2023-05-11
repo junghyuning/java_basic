@@ -5,9 +5,8 @@ public class Ex37_FileSplit {
 		if(args.length<2) {
 			System.out.println("usage : java FileSplit filename SIZE_KB");
 			System.exit(0);
-			
 		}
 		
-		System.out.println("파일 2개이상 있음");
+		final int VOLUMN= Integer.parseInt(args[1]);
 	}
 }
