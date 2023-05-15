@@ -9,9 +9,9 @@ import java.sql.Statement;
 //emp 테이블에 저장된 모든 사원 정보의 empno,ename,sal / order by sal desc => 검색 및 출력
 public class SelectEmpApp {
 	public static void main(String[] args) {
-		Connection con = null;
-		Statement stmt = null;
-		ResultSet rs = null;
+		Connection con = null; //연결 객체
+		Statement stmt = null; // con으로부터 연결객체를 생성받아 sql에 명령을 전달하는 객체
+		ResultSet rs = null; // select 명령문의 결과 객체를 저장하는 객체
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver"); // 객체 생성 및 등록
