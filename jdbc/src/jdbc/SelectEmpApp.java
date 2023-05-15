@@ -35,11 +35,18 @@ public class SelectEmpApp {
 				count++;
 			}
 			System.out.println("총 인원 :"+ count);
+			con.commit();
 		} catch (ClassNotFoundException e) {
 			// TODO: handle exception
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-		} finally {
+		} catch (Exception e) {
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+		}finally {
 			try {
 				if(stmt!=null) stmt.close();
 				if(rs != null) rs.close();
