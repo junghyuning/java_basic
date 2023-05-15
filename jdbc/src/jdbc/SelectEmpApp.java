@@ -23,7 +23,7 @@ public class SelectEmpApp {
 			String selectSql = "select empno,ename,sal from emp order by sal desc";
 			rs = stmt.executeQuery(selectSql);
 			int count = 0;
-			while (rs.next()) {
+			while (rs.next()) {//검색 테이블에서 다음행으로 이동하는 명령어
 				int empno = rs.getInt("empno");
 				int sal = rs.getInt("sal");
 				String ename = rs.getString("ename");
