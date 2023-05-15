@@ -8,7 +8,7 @@ Class 객체(Clazz) 수동으로  생성하는 방법
 */
 
 
-public class StaticBlockApp {
+public class Jdbc02_StaticBlockApp {
 	public static void main(String[] args) throws ClassNotFoundException {
 		/*
 		  1.JVM은 ClassLoader 프로그램을 이용하여 클래스(Class 파일)를 읽어 메모리(Method영역)에 저장

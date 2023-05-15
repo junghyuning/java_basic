@@ -10,7 +10,7 @@ import oracle.jdbc.OracleDriver;
 
 
 //STUDENT 테이블에 학생정보를 삽입하는 JDBC 프로그램 작성.
-public class InsertStudentApp {
+public class Jdbc03_InsertStudentApp {
 	public static void main(String[] args) {
 		//jdbc관련 객체의 경우 예외처리 블럭 외부에 선언함 -> 전체 영역에서 객체를 사용하기 위함.
 		Connection con =null;

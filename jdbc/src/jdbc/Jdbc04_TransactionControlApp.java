@@ -11,7 +11,7 @@ import java.sql.SQLException;
 //jdbc프로그램의 경우, 기본적으로 AutoCommit 기능이 활성화 돼있음 => DML이라도 자동으로 commit 됨
 
 //
-public class TransactionControlApp {
+public class Jdbc04_TransactionControlApp {
 	public static void main(String[] args) {
 		//student 테이블에 저장된 학생 정보 중 학번이 2000인 학생의 이름을 임꺽정으로 변경하는 jdbc 프로그램 작성
 		Connection con= null;

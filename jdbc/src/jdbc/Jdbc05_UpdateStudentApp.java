@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 //Student 테이블에 저장된 학생 정보 중 학번이 2000인 학생의 이름을 임걱정으로 변경하고 주소를 부천시 원미구로 변경하는 JDBC프로그램 작성
 
-public class UpdateStudentApp {
+public class Jdbc05_UpdateStudentApp {
 	public static void main(String[] args) {
 		Connection con = null;
 		Statement stmt = null;

@@ -8,7 +8,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class SelectStudentApp {
+public class Jdbc08_SelectStudentApp {
 	public static void main(String[] args) {
 		Connection con = null;
 		Statement stmt = null;
