@@ -1,5 +1,7 @@
 package student; 
 
+
+
 /********************************************************
 파    일   명 : StudentGUIApp.java
 기         능 : 학생 관리 프로그램
@@ -22,6 +24,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+
+//JAVA 프로그램(클래스)를 배포하는 방법
+//1.프로젝트 >> 오른쪽 버튼 클릭 >> Export >> Java 선택 >> Runnable JAR File 선택
+//2.Launch configuration >> 프로그램 선택
+//3.Export destination >> Jar 파일의 경로 입력
+//4.Finish 클릭
 
 public class StudentGUIApp extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
@@ -405,24 +413,195 @@ public class StudentGUIApp extends JFrame implements ActionListener {
 	//JTextField 컴퍼넌트로 입력된 학번을 제공받아 STUDENT 테이블에 저장된 해당 학번의 학생정보를 
 	//검색하여 JTextField 컴퍼넌트에 출력하는 메소드 - UPDATE_CHANGE 상태 변경
 	public void searchNoStudent() {
-
+		String noTemp=noTF.getText();
+		if(noTemp.equals("")) {
+			JOptionPane.showMessageDialog(this, "학번을 반드시 입력해 주세요.");
+			noTF.requestFocus();
+			return;
+		}
+		
+		String noReg="^[1-9][0-9]{3}$";
+		if(!Pattern.matches(noReg, noTemp)) {
+			JOptionPane.showMessageDialog(this, "학번은 4자리 숫자로만 입력해 주세요.");
+			noTF.requestFocus();
+			return;	
+		}
+		
+		int no=Integer.parseInt(noTemp);
+		
+		//학번을 전달받아 STUDENT 테이블에 저장된 해당 학번의 학생정보를 검색하여 
+		//반환하는 DAO 클래스의 메소드 호출
+		StudentDTO student=StudentDAOImpl.getDAO().selectStudent(no);
+		
+		if(student == null) {//검색된 학생정보가 없는 경우
+			JOptionPane.showMessageDialog(this, "변경할 학번의 학생정보가 없습니다.");
+			noTF.requestFocus();
+			noTF.setText("");
+			return;
+		}
+		
+		//검색된 학생정보를 JTextField 컴퍼넌트에 출력
+		noTF.setText(student.getNo()+"");
+		nameTF.setText(student.getName());
+		phoneTF.setText(student.getPhone());
+		addressTF.setText(student.getAddress());
+		birthdayTF.setText(student.getBirthday());
+		
+		//UPDATE_CHANGE 상태로 변경
+		setEnable(UPDATE_CHANGE);
 	}
 	
 	//JTextField 컴퍼넌트로 입력된 학생정보를 제공받아 STUDENT 테이블에 저장된 학생정보를 변경하고 
 	//STUDENT 테이블에 저장된 모든 학생정보를 검색하여 JTable 컴퍼넌트에 출력하는 메소드
 	public void modifyStudent() {
+		int no=Integer.parseInt(noTF.getText());//학번을 반환받아 저장
+	
+		//JTextField 컴퍼넌트에 입력된 변경값을 반환받아 저장 
+		String name=nameTF.getText();
+		
+		if(name.equals("")) {
+			JOptionPane.showMessageDialog(this, "이름을 반드시 입력해 주세요.");
+			nameTF.requestFocus();
+			return;	
+		}
+		
+		String nameReg="^[가-힣]{2,5}$";
+		if(!Pattern.matches(nameReg, name)) {
+			JOptionPane.showMessageDialog(this, "이름은 2~5 범위의 한글로만 입력해 주세요.");
+			nameTF.requestFocus();
+			return;
+		}
+		
+		String phone=phoneTF.getText();
+		
+		if(phone.equals("")) {
+			JOptionPane.showMessageDialog(this, "전화번호를 반드시 입력해 주세요.");
+			phoneTF.requestFocus();
+			return;
+		}
+		
+		String phoneReg="(01[016789])-\\d{3,4}-\\d{4}";
+		if(!Pattern.matches(phoneReg, phone)) {
+			JOptionPane.showMessageDialog(this, "전화번호를 형식에 맞게 입력해 주세요.");
+			phoneTF.requestFocus();
+			return;
+		}
+		
+		String address=addressTF.getText();
+		
+		if(address.equals("")) {
+			JOptionPane.showMessageDialog(this, "주소를 반드시 입력해 주세요.");
+			addressTF.requestFocus();
+			return;
+		}
+		
+		String birthday=birthdayTF.getText();
+		
+		if(birthday.equals("")) {
+			JOptionPane.showMessageDialog(this, "생년월일을 반드시 입력해 주세요.");
+			birthdayTF.requestFocus();
+			return;
+		}
+		
+		String birthdayReg="(19|20)\\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])";
+		if(!Pattern.matches(birthdayReg, birthday)) {
+			JOptionPane.showMessageDialog(this, "생년월일을 형식에 맞게 입력해 주세요.");
+			birthdayTF.requestFocus();
+			return;
+		}
+		
+		StudentDTO student=new StudentDTO();
+		student.setNo(no);
+		student.setName(name);
+		student.setPhone(phone);
+		student.setAddress(address);
+		student.setBirthday(birthday);
+		
+		//학생정보를 전달받아 STUDENT 테이블에 저장된 학생정보를 변경하는 DAO 클래스의 메소드 호출
+		int rows=StudentDAOImpl.getDAO().updateStudent(student);
+		
+		JOptionPane.showMessageDialog(this, rows+"명의 학생정보를 변경 하였습니다.");
 
+		displayAllStudent();
+		initDisplay();
 	}
 	
 	//JTextField 컴퍼넌트로 입력된 학번을 제공받아 STUDENT 테이블에 저장된 해당 학번의 학생정보를 
 	//삭제하고 STUDENT 테이블에 저장된 모든 학생정보를 검색하여 JTable 컴퍼넌트에 출력하는 메소드
 	public void removeStudent() {
-
+		String noTemp=noTF.getText();
+		if(noTemp.equals("")) {
+			JOptionPane.showMessageDialog(this, "학번을 반드시 입력해 주세요.");
+			noTF.requestFocus();
+			return;
+		}
+		
+		String noReg="^[1-9][0-9]{3}$";
+		if(!Pattern.matches(noReg, noTemp)) {
+			JOptionPane.showMessageDialog(this, "학번은 4자리 숫자로만 입력해 주세요.");
+			noTF.requestFocus();
+			return;	
+		}
+		
+		int no=Integer.parseInt(noTemp);
+		
+		//학번을 전달받아 STUDENT 테이블에 저장된 해당 학번의 학생정보를 삭제하는
+		//DAO 클래스의 메소드 호출
+		int rows=StudentDAOImpl.getDAO().deleteStudent(no);
+		
+		if(rows > 0) {
+			JOptionPane.showMessageDialog(this, rows+"명의 학생정보를 삭제 하였습니다.");
+			displayAllStudent();
+		} else {
+			JOptionPane.showMessageDialog(this, "삭제할 학번의 학생정보가 없습니다.");
+		}
+		
+		initDisplay();
 	}
 	
 	//JTextField 컴퍼넌트로 입력된 이름을 제공받아 STUDENT 테이블에 저장된 해당 이름이 포함된  
 	//학생정보를 검색하고 JTable 컴퍼넌트에 출력하는 메소드	
 	public void searchNameStudent() {
+		String name=nameTF.getText();
+		
+		if(name.equals("")) {
+			JOptionPane.showMessageDialog(this, "이름을 반드시 입력해 주세요.");
+			nameTF.requestFocus();
+			return;	
+		}
+		
+		String nameReg="^[가-힣]{2,5}$";
+		if(!Pattern.matches(nameReg, name)) {
+			JOptionPane.showMessageDialog(this, "이름은 2~5 범위의 한글로만 입력해 주세요.");
+			nameTF.requestFocus();
+			return;
+		}
+		
+		//이름을 전달받아 STUDENT 테이블에 저장된 해당 이름의 학생정보를 검색하여 반환
+		//하는 DAO 클래스의 메소드 호출
+		List<StudentDTO> studentList=StudentDAOImpl.getDAO().selectNameStudentList(name);
+		
+		if(studentList.isEmpty()) {
+			JOptionPane.showMessageDialog(this, "검색된 학생정보가 없습니다.");
+			return;
+		}
+		DefaultTableModel model=(DefaultTableModel)table.getModel();
+		
+		//JTable 컴퍼넌트 초기화 - 기존 출력행 삭제 처리
+		for(int i=model.getRowCount();i>0;i--) {
+			model.removeRow(0);
+		}
 
+		for(StudentDTO student : studentList) {
+			Vector<Object> rowData=new Vector<>();
+
+			rowData.add(student.getNo());
+			rowData.add(student.getName());
+			rowData.add(student.getPhone());
+			rowData.add(student.getAddress());
+			rowData.add(student.getBirthday());
+		
+			model.addRow(rowData);
+		}
 	}
 }

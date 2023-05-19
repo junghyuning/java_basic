@@ -8,7 +8,7 @@ import java.util.List;
 //=> 프로그램에서 사용하는 DAO 클래스가 변경돼도 프로그램에 영향을 최소화하기 위해 인터페이스
 public interface StudentDAO {
 	// 단일행 => studentDTO 객체 or 값 반환하면됨
-	//1. 학생정보를 전달받아 STUDENT 테이블에 삽입하고 삽입행의 갯수를 반환하는 메소드
+	//1. 학생정보                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      를 전달받아 STUDENT 테이블에 삽입하고 삽입행의 갯수를 반환하는 메소드
 //	int insertStudent(int no, String name, String phone, String address, String birthday);
 	int insertStudent(StudentDTO student); // DTO 객체를 사용할 경우 이렇게 간략화 가능
 	
