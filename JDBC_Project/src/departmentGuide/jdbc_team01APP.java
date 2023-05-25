@@ -172,7 +172,9 @@ public class jdbc_team01APP extends JFrame {
 		floor.setBounds(24, 10, 97, 44);
 		panel_7.add(floor);
 
-		// 검색창 팝업을 띄울 수 있는 버튼
+		// 검색창 팝업을 띄울 수 있는 버튼  
+		// => 띄울때마다 초기화 하려면, dialoge생성시에 초기값을 주거나, 별도의 초기화를 위한 메서드를 만들것,,!
+		
 		JButton categories = new JButton("카테고리");
 		categories.addActionListener(new ActionListener() {
 			@Override
