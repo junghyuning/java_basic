@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>input 태그</h1>
+	<hr>
+	<!-- 사용자로부터 값을 입력받기 위한 태그 - 입력태그 -->
+	<!-- # : self -->
+	<form action="#" method="post">
+		<input type="hidden" name="num" value="1000">
+		<p>id : <input type="text" name="id" size="10" maxlength="20" autofocus="autofocus"></p>
+		<p>password : <input type="password" name="passwd" placeholder="형식에 맞는 비밀번호를 입력하세요."></p>
+		<p>name : <input type="text" name="name" value="홍길동" readonly="readonly"></p>
+		<p>gender : <input type="radio" name="gender" value="M">남자<input type="radio" name="gender" value="W">여자</p>
+		<p>hobbies : <input type="checkbox" name="hobby" value=독서>독서
+		<input type="checkbox" name="hobby" value="등산">등산
+		<input type="checkbox" name="hobby" value="게임">게임
+		<input type="checkbox" name="hobby" value="낚시">낚시</p>
+		<button type="submit">회원가입</button>
+		<p>photo : <input type="file" name="profile"></p>
+		<p>e-mail : <input type="email" name="email"></p>
+		<p>age : <input type="number" name="age" max="100" min="1"></p>
+		<p>Tel)  <input type="tel" name= "tel"></p>
+		<p>SNS : <input type="url" name="sns"></p>
+		<p>search : <input type="search" name="keyboard"></p>
+		<p>color-preference : <input type="color" name="color"></p>
+		<p>capacity : low<input type="range" name="grade" min="1" max="3">high</p>
+		<p>birthday : <input type="date" name ="birthday"></p>
+		<p>wake-time : <input type="time" name="uptime"></p>
+		<p>alarm : <input type="datetime-local" name ="alarm"></p>
+	</form>
+</body>
+</html>
