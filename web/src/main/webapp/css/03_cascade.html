@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS</title>
+<style>
+body{
+	color: red;
+}
+p{
+	color: green;
+	font-size: 25px;
+}
+
+/* !important : 단계적 적용을 무시하고 최우선적으로 스타일을 적용하기 위한 속성값*/
+li{
+	color: fuchsia !important;	
+}
+
+li{ 
+	color: aqua; 
+}
+
+ul{
+	color: blue;
+	font-size: 20px;
+}
+</style>
+</head>
+<body>
+<!-- Cascade - 폭포가 흘러가는 모양 -> 단계적 적용 의미 : 먼저 적용된 스타일 폐기. 
+but 자손 태그의 경우, 계층적 순서에 의해 스타일 적용됨 (예외) (css보다 html에 우선권이 있기 때문..)--> 
+	<h1>CSS 스타일의 단계적 적용과 상속</h1>
+	<hr>
+	<p>브라우저에 출력될 아주 중요한 내용입니다.</p>
+	<hr>
+	<ul>
+		<li>아주 중요한 내용-1</li>		
+		<li>아주 중요한 내용-2</li>		
+		<li>아주 중요한 내용-3</li>		
+	</ul>
+</body>
+</html>
