@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS</title>
+<style type="text/css">
+
+h1{
+	text-align: center;
+}
+/*p태그를 사용하는 모든 엘리먼트에 스타일 적용 - 묵시적 반복*/
+p{
+	font-size: 25px;
+	color: green;
+}
+p:nth-child(2n) {
+	color: blue;
+}
+</style>
+</head>
+<body>
+	<h1>CSS Style</h1>
+	<hr>
+	<p>브라우저에 출력될 아주 중요한 내용입니다. </p>
+	<p>브라우저에 출력될 아주 중요한 내용입니다. </p>
+	<p>브라우저에 출력될 아주 중요한 내용입니다. </p>
+	<p>브라우저에 출력될 아주 중요한 내용입니다. </p>
+	<p>브라우저에 출력될 아주 중요한 내용입니다. </p>
+</body>
+</html>
