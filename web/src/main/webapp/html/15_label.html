@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML</title>
+</head>
+<body>
+	<h1>label 태그</h1>
+	<hr>
+	
+	
+	<!-- label 태그 미사용 시, 입력태그를 직접 클릭할 경우에만 입력촛점을 제공 함. -->
+	<h3>label 태그 미사용</h3>
+	<p>이름 : <input type="text" name="name"></p>
+	<p>취미 : 
+		<input type="checkbox" name="hobby" value="등산">등산 &nbsp;&nbsp;
+		<input type="checkbox" name="hobby" value="낚시">낚시 &nbsp;&nbsp;
+		<input type="checkbox" name="hobby" value="독서">독서 &nbsp;&nbsp;
+		<input type="checkbox" name="hobby" value="게임">게임 &nbsp;&nbsp;
+	</p>
+
+	<hr>
+	<h3>label 태그 사용</h3>
+	<p><label>이름 : <input type="text" name="name"></label></p>
+	<p>취미 : 
+	<!-- if, 등산이라는 input에 hobby4에 대한 라벨을 부여할시, "등산"문자 선택시, 4번째 네모에 체크됨. -->
+		<input type="checkbox" name="hobby" id="hobby1" value="등산"><label for ="hobby1">등산</label> &nbsp;&nbsp;
+		<input type="checkbox" name="hobby" id="hobby2" value="낚시"><label for ="hobby2">낚시</label> &nbsp;&nbsp;
+		<input type="checkbox" name="hobby" id="hobby3" value="독서"><label for ="hobby3">독서</label> &nbsp;&nbsp;
+		<input type="checkbox" name="hobby" id="hobby4" value="게임"><label for ="hobby4">게임</label> &nbsp;&nbsp;
+	</p>
+</body>
+</html>

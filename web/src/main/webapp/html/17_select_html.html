@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML</title>
+</head>
+<body>
+	<h1>select tag</h1>
+	<hr>
+	<form method="post">
+		<label for="class">학과</label>
+		<!-- multiple : 다중 선택   속성 multiple="multiple"-->
+		<select id="class name="class">
+			<optgroup label="공과대">
+				<option value="arch">건축공학과</option>
+				<option value="machinic">기계공학과</option>
+				<option value="indust">산업공학과</option>
+				<option value="computer" selected="selected">컴퓨터공학과</option>
+				<option value="chemical">화학공학과</option>
+			</optgroup>
+			<optgroup label="인문대">
+				<option value="history">사학과</option>
+				<option value="lang">어문학과</option>
+				<option value="philo">철학과</option>
+			</optgroup>
+		</select>
+		<button type="submit">제출</button>
+	</form>
+</body>
+</html>
