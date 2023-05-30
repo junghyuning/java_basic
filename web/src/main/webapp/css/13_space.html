@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS</title>
+<style>
+div {
+	margin: 5px;
+	/*  태그 내용이 박스 모델의 폭보다 큰 경우, 자동 줄바꿈 처리됨.*/
+	width: 200px;
+	border: 1px solid red;
+}
+
+/* white-space : 공백처리에 대한 스타일 속성 => 박스모델의 폭보다 큰 태그내용 처리에 대한 스타일 속성
+=> 속성값 : normal(기본 - pre-Line), pre, nowrap, pre-wrap																					
+ */
+.space1{
+	white-space: normal;  /* == pre-line */
+}
+.space2{
+	white-space: pre;
+}
+.space3{
+	white-space: nowrap;
+}
+.space4{
+	white-space: pre-wrap;
+}
+</style>
+</head>
+<body>
+	<h1></h1>
+	<hr>
+	<!-- HTML 문서의 다수의 공박은 하나의 공백으로 처리되어 출력 -->
+	<div class="space1">웹표준(HTML5 + CSS3 + JavaScript를     이용한    웹사이트    만들기)</div>
+	<div class="space2">웹표준(HTML5 + CSS3 + JavaScript를     이용한    웹사이트    만들기)</div>
+	<div class="space3">웹표준(HTML5 + CSS3 + JavaScript를     이용한    웹사이트    만들기)</div>
+	<div class="space4">웹표준(HTML5 + CSS3 + JavaScript를     이용한    웹사이트    만들기)</div>
+</body>
+</html>

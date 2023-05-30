@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS</title>
+<!-- Google 제공 웹폰트 : https://fonts.google.com -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap" rel="stylesheet">
+
+
+
+<!-- 
+웹 폰트(WebFont) : 웹서버에 저장된 글꼴 파일을 클라이언트에게 제공하여 사용하는 기능  
+
+* 글꼴파일 : ttf(OS에서 사용하는 글꼴 파일) => 대용량 => 웹에서 사용하기에는 무거움
+=> 웹사용 글꼴 : woff(IE9 이상, 크롬, 사파리 등), eof(IE8이하, 크롬,) 
+
+* font-face : 글꼴파일을 클라이언트에게 제공하기 위한 시스템 속성
+font-family: "";
+src: url("");  -> 글꼴파일의 url 주소를 속성값으로 설정함.
+
+-->
+
+<style type="text/css">
+@font-face {
+	font-family: "NanumGothic";
+	src: url("/web/css/fonts/NanumGothic.woff");
+}
+
+body {
+	font-family: "NanumBarunGothic";
+}
+</style>
+</head>
+<body>
+	<h1>글꼴 관련 스타일 속성</h1>
+	<hr>
+	<p>브라우저에 출력될 아주 중요한 내용입니다.</p>
+	<p>브라우저에 출력될 아주 중요한 내용입니다.</p>
+	<p>브라우저에 출력될 아주 중요한 내용입니다.</p>
+	<p>브라우저에 출력될 아주 중요한 내용입니다.</p>
+	<p>브라우저에 출력될 아주 중요한 내용입니다.</p>
+</body>
+</html>
