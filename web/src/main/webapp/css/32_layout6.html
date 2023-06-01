@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+width : 400px;
+height:200px;
+margin:10px;
+border:1px solid black;}
+
+#red{
+	background: red;
+	/* position: static; */
+	
+	/* relative 속성 : item을 자동 배치 후, top/left 활용하여 이동배치 가능 (아래. 오른쪽으로 이동하고 싶을 시, 음수 사용)
+	-> but 이렇게 사용할 시 다른 item들과 중첩이 발생할 수 있음 */
+	 position: relative;
+	 top: 50px;
+	 left: 30px;
+	
+}
+#green{
+	background: green;
+	/* position: static; */
+	/* absolute 속성 : 해당 아이템을 배치하기 전에 이동시킨 후 배치 함.
+	-> 배치의 기준 : 해당 태그의 부모테그를 기준으로 함 (#green은 body 태그 하위의 div 태그이므로 body의 배치를 기준으로 함)
+	 */
+	position: absolute;
+	top: 200px;
+	left: 100px;
+	
+}
+#blue{
+	background: blue;
+	/* position: static; */
+	/* fixed 속성 : absolute와 동일 원리 but 스크롤을 제공하지 않음 */
+	position: fixed;
+}
+</style>
+</head>
+<body>
+	<h1></h1>
+	<hr>
+	<div id="red"></div>
+	<div id="green"></div>
+	<div id="blue"></div>
+	
+</body>
+</html>

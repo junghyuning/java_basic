@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#shape div{
+	width: 100px;
+	height: 100px;
+	background: red;
+	border-radius: 0;
+	
+	/* transition-property: 트렌지션 효과를 적용할 스타일을 속성값으로 설정  */
+	transition-property: background border-radius;
+	transition-duration: 3s;
+	
+	/* transition-timing-function : https://easing.net 사이트 참조  */
+	transition-delay: 1s;
+	
+}
+#shape div:hover {
+	background: blue;
+	border-radius: 50%;
+}
+
+</style>
+</head>
+<body>
+<h1>트렌지션 관련 스타일 속성</h1>
+<hr>
+<p>도형 위에 마우스 커서를 올려보세요.</p>
+<div id="shape">
+	<div></div>
+</div>
+</body>
+</html>
