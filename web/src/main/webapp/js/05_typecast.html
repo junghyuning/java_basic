@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript</title>
+</head>
+<body>
+	<h1>자바 스크립트 형변환</h1>
+	<hr>
+	<p>자동 형변환 : 연산자에 의해 값의 자료형으로 변환</p>
+	<p>강제 형변환 : 자료형 관련 함수에 의해 값의 자료형을 강제로 변환</p>
+	
+	<script type="text/javascript">
+	alert(20+10);
+	alert("20"+10);
+	alert("20"*10); 
+	
+	alert(20-"abc");
+	
+	alert(20+true); 
+	
+	/* 매개변수로 전달받은 값을 다른 형으로 강제 형변환하여 반환하는 함수
+		Number(value) / String(value) / Boolean(value) */
+	alert(Number("20")+10); //30 반환
+	
+	</script>
+</body>
+</html>
