@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript</title>
+</head>
+<body>
+	<h1>자바스크립트 객체</h1>
+	<hr>
+	
+	
+	<script type="text/javascript">
+/* 	클래스 함수 선언 - 객체를 생성하기 위한 함수
+	=> 일반 함수와 구분하기 위해 함수명의 첫 문자를 대문자로 작성함 -> 파스칼 표기법
+	클래스 함수의 매개변수로 값을 전달받아 프로퍼티의 초기값으로 저장 */
+	
+	function Student(num, name, address){
+		//this 키워드를 사용하여 프로퍼티와 메서드 표현
+		//=> this : 클래스 함수 내부에서 객체를 표현하기 위해 표현하는 키워드
+		this.num = num;
+		this.name = name;
+		this.address= address;
+		
+		this.display = function(){
+			alert("학번 = " + this.num+", 이름 = " + this.name + " ,  주소 = " + this.address);
+		}
+		
+	}
+	
+	var student = new Student(1000, '임꺽정', '서울시 강남구');
+	alert(typeof(student)); //object 반환
+	/* 대괄호 연산자 
+	=> student.num == student["num"]  ,  student.display() == student[“display”]() */
+	alert(student.num+','+student.name+','+student.address);
+	 student.display();
+	
+	// 프로퍼티에 대한 추가, 변경, 삭제 가능
+	student.phone = "010-1234-5678";
+	
+	//메소드에 저장된 함수 변경 -> 메소드 변경
+	student.display = function() {
+		alert("학번 = " + this.num+", 이름 = " + this.name + " ,  주소 = " + this.address+" ,  전화번호 = " + this.phone);
+	}
+	student.display()
+	
+	delete(student.phone);
+	student.display(); //phone => undefined
+	
+	
+	//ES6 => 클래스 키워드로 클래스를 선언하여 객체 생성이 가능
+	class Human {
+		constructor(num){
+			this.num = num;
+		}
+	}
+	
+	class Student extends Human {
+		constructor(num, name, address){
+			super(num);
+			this.name = name;
+			this.address=address;
+		}
+		
+		display(){
+			alert("학번 = " + this.num+", 이름 = " + this.name + " ,  주소 = " + this.address);
+		}
+	}
+	
+	let student = new Student(1000,'홍길동','서울시 강남구');
+	alert('클래스의 자료형 = ' + typeof(Student)); // 클래스의 자료형 = 함수
+	alert('변수의 자료형 = ' + typeof(student)); // 변수의 자료형 = 객체
+	
+	</script>
+</body>
+</html>

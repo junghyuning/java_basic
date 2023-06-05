@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Java Script</title>
+</head>
+<body>
+	<h1>내부함수(InnerFuction)</h1>
+	<hr>
+	<p>내부함수 - 함수안의 함수 : 선언된 함수 내부에서만 호출 가능</p>
+
+	<script type="text/javascript">
+		/* function display(){
+			alert("display 함수의 명령 실행 -1")
+		}
+		function display(){ // 
+			alert("display 함수의 명령 실행 -2")
+		}
+		
+		display(); */
+
+		function outer() {
+			function inner() {
+				alert("inner 함수의 명령 실행");
+			}
+			(function() {
+				alert("익명함수의 명령 실행(내부함수로 작성)")
+			})();
+
+			inner();
+		}
+
+		/* 	inner(); error : 내부함수를 외부함수 밖에서 사용하였으므로 */
+		outer();
+	</script>
+</body>
+</html>

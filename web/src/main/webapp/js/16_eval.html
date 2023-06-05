@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1></h1>
+	<hr>
+	<p>eval(string) : 매개변수로 문자값을 전달받아 자바 스크립트 명령으로 변환하여 실행하는 함수</p>
+
+	<script type="text/javascript">
+/* 		var text = "20+10";
+		alert(text); //20+ 10 출력
+		alert(eval(text)); //30 출력 */
+		
+		var operation = prompt("연산식 입력");
+		alert("연산결과 = "+eval(operation));
+
+		
+		
+		// 변수에 저장된 값이 함수가 아니므로 함수 호출 불가 = 에러발생
+		//"" 으로 묶여있어 string으로 취급됨
+		var display="function() { alert('함수의 명령 실행'); }";
+		 alert("변수의 자료형 = " + typeof(display)); 
+		
+		
+		//eval 함수를 사용하여 변수에 저장된 문자값을 실행함
+		eval("("+display+")")(); // 문자값으로 저장된 함수를 eval 함수를 사용하여 선한 한 후 직접 호출 
+	
+		</script>
+</body>
+</html>

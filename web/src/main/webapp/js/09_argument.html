@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>함수의 인자</h1>
+	<hr>
+	<p>인자(Argument) - 함수에 작성된 명령을 실행하기 위해 반드시 필요한 겂을 함수 호출시 전달받아 저장하기 위해 사용하는 변수 - 매개변수</p>
+	
+	<script type="text/javascript">
+	
+/* 	function sum(num1, num2) {  // 지역변수
+		alert("합계 = " +(num1 + num2));
+	}
+	
+	//sum(10, 20);
+	
+	sum(10,20,30);  // NaN 반환 */
+	
+	
+	function total() {
+		alert("함수 실행")
+		
+		alert(arguments);
+		alert(arguments.length);
+		var tot = 0;
+		for(i=0;i<arguments.length;i++){
+			tot=+ arguments[i];
+		}
+		
+		alert("합계 = " + tot);
+	}
+	
+	total(10,20,30,40,50);
+	</script>
+</body>
+</html>
