@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript</title>
+<style>
+#displayDiv {
+	width: 600px;
+	margin: 0 auto;
+	padding: 30px 0;
+	font-size: 2em;
+	font-weight: bold;
+	text-align: center;
+	border: 1px solid black;
+}
+</style>
+</head>
+<body>
+	<h1>Event - 이벤트 처리</h1>
+	<hr>
+	<p> 이벤트 : 태그(박스모델 - element 객체)에서 발생되는 다양한 사건</p>
+	<p> 이벤트 처리(Event Handle) : 태그에서 발생된 이벤트에 대한 처리 명령 (java script로 구현)</p>
+	<p> 태그의 이벤트 리스너 속성의 속성값으로 이벤트 처리 명령 작성</p>
+	<!-- 버튼에서 클릭 이벤트가 발생함. -->
+	<!-- <button type="button" onclick="alert('이벤트 처리 명령 실행');">버튼 -1</button> --> 
+	<!-- 너무 복잡해질 수 있으므로 eventHandle() 함수를 이용하여 처리  -->
+	<button type="button" onclick="eventHandle();">버튼 -1</button>	
+	<button type="button" id="eventBtn">버튼 -2</button>	
+	
+	
+	<script type="text/javascript">
+	function eventHandle(){
+		alert('이벤트처리명령 실행-1');
+	}
+	
+	document.getElementById("eventBtn").onclick=function() {
+		alert('이벤트처리명령 실행-2');
+	}
+	</script>
+</body>
+</html>
