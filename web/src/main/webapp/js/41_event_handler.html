@@ -14,7 +14,8 @@
 	<!-- <button type="button" onclick="alert('이벤트 처리 명령 실행');">버튼 -1</button> --> 
 	<!-- 너무 복잡해질 수 있으므로 eventHandle() 함수를 이용하여 처리  -->
 	<button type="button" onclick="eventHandle();">버튼 -1</button>
-	<button type="button" id="eventBtn">버튼 -2</button>	
+	<button type="button" id="eventBtn2">버튼 -2</button>	
+	<button type="button" id="eventBtn3">버튼 -3</button>	
 	
 	
 	<script type="text/javascript">
@@ -22,9 +23,14 @@
 		alert('이벤트처리명령 실행-1');
 	}
 	
-	document.getElementById("eventBtn").onclick=function() {
+	document.getElementById("eventBtn2").onclick=function() {
 		alert('이벤트처리명령 실행-2');
 	}
+	
+	//Node.addEventListner(EventName, callback, [useCapture]) : Node(Element)객체에서 이벤트(eventName)가 발생될 경우 콜백함수를 호출하는 메서드
+	document.getElementById("eventBtn3").addEventListener("click", function(e) {
+		alert('이벤트 처리 명령 실행-3')
+	});
 	</script>
 </body>
 </html>

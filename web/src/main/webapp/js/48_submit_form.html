@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>form 태그 관련 이벤트</h1>
+	
+	   <form action="47_form_action.html" method="post" name="loginForm">
+      <table>
+         <tr>
+            <td>아이디</td>
+            <!-- 사용자로부터 값을 입력받기 위한 태그 -->
+            <td><input type="text" name="id"></td>
+         </tr>
+         <tr>
+            <td>비밀번호</td>
+            <td><input type="password" name="passwd"></td>
+         </tr>
+         <tr>
+         <!-- 제출이벤트를 발생하는 태그 -->
+            <td colspan="2"><button type="submit">로그인</button></td>
+         </tr>
+      </table>
+   </form>
+   <hr>
+   <!-- 미실행 방법 -->
+   <a href="https://www.daum.net" onclick="event.preventDefault()">다음으로 이동</a>
+   <a href="https://www.naver.net" onclick="return false">네이버로 이동</a>
+   
+   
+   <script type="text/javascript">
+   //form 태그에서 제출 이벤트가 발생될 경우 호출될 이벤트 처리함수 등록
+   //=> 사용자 입력값이 비정상적인 경우 제출 이벤트 취소 - form 미실행 => event.preventDefault();
+	loginForm.onsubmit = function() {
+		if (loginForm.id.value == "") { //아이디 입력값이 없는 경우
+			alert('아이디를 입력해 주세요');
+			loginForm.id.focus();
+			//form태그 미실행 방법 2. event.preventDefault()
+/* 			event.preventDefault(); //태그에서 발생되는 기본이벤트(웹프로그램요청) 취소 명령
+			return; //form태그 미실행
+ */			
+ 			//방법3. return false
+ 			return false; //이벤트 처리를 하지 말라는 의미
+			
+		}
+		
+		var idReg=/^[a-zA-Z]\w{5,19}/g; // g=global(모든 html 정규표현식에 붙음.)
+		if(!idReg.test(loginForm.id.value)){
+			alert('아이디를 형식에 맞게 입력해 주세요');
+			loginForm.id.focus();
+			event.preventDefault();
+			return;
+		}
+		
+		if (loginForm.passwd.value == "") { //비밀번호 입력값이 없는 경우
+			alert('비밀번호를 입력해 주세요');
+			loginForm.passwd.focus();
+			event.preventDefault();
+			return;
+		}
+	}
+</script>
+	
+</body>
+</html>
