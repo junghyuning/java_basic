@@ -37,7 +37,7 @@
 		alert(h2E.firstChild)//[object Text] >> 즉, TEXT Node 라는 의미
 		alert(h2E.firstChild.nodeName)//#text //텍스트 객체 
 		//=> 즉, h2가 태그의 내용을 가지고 있는 것이 아니라 h2의 자식인 text 객체가 태그의 내용을 가지고 있음.
-		alert(h2E.firstChild.nodeValue); //p태그에 의해 출력되는 내용 출력 
+		alert(h2E.firstChild.nodeValue); //h2태그에 의해 출력되는 내용 출력 
 
 		//text 객체의 nodeValue 프로퍼티의 속성값 변경 -> 태그내용 변경 가능
 		h2E.firstChild.nodeValue = "h2 태그의 내용 변경";
