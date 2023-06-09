@@ -31,7 +31,9 @@
 		var imgE = document.createElement("img");
 
 		//Element.attributeName : Element 객체에 프로퍼티스를 추가하면 태그속성을 추가하는 것과 같음
-		imgE.src = "images/Koala.jpg";//<img src="images/Koala.jpg"
+		//imgE.src = "images/Koala.jpg";//<img src="images/Koala.jpg"
+		imgE.setAttribute(src, "images/Koala.jpg")
+		
 		//Node.setAttribute(name, value) : Node(Element) 객체의 태그의 속성값을 변경하는 메소드
 		// =〉 매개변수로 전달받은 속성이 없는 경우 속성 추가
 		//Node.setAttribute(name) : Node(Element) 객체의 태그 속성값을 반환하는 메소드
