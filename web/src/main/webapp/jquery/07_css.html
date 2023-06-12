@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<style>
+#displayDiv {
+	margin: 20px;
+	padding: 0px;
+	border: 1px solid blue;
+	color: red;
+	font-size: 1.5em;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<h1>css 메서드</h1>
+	<hr>
+	<div id="displayDiv">CSS관련 메서드</div>
+
+	<script type="text/javascript">
+		//$(selector).css(name) : 선택자로 검색된 css 스타일 속성값을 반환하는 메서드
+/* 		alert("결과 = "+$("#displayDiv").css("margin"));
+		alert("결과 = "+$("#displayDiv").css("padding"));
+		alert("결과 = "+$("#displayDiv").css("border"));
+		alert("결과 = "+$("#displayDiv").css("color"));		
+		alert("결과 = "+$("#displayDiv").css("font-size"));
+		alert("결과 = "+$("#displayDiv").css("text-align")); */
+		
+		
+		/* $('#displayDiv').css('width','50%');
+		$('#displayDiv').css('position','absolute');
+		$('#displayDiv').css('top','200px');
+		$('#displayDiv').css('left','100px'); */
+		0
+		
+		//한꺼번에 변경
+		$('#displayDiv').css({'width':'50%', 'position':'absolute','top':'200px','left':'100px'}); 
+	</script>
+</body>
+</html>
