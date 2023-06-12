@@ -15,11 +15,14 @@
 
 	<script type="text/javascript">
 		//$(selector).attr(name) : 선택자로 검색된 태그의 속성값을 반환하는 메서드
-/* 		alert('결과 ='+$('#imgDiv').attr('data-value'));
-		alert('결과 ='+$('#img').attr('src'));
+/* 		alert('결과 ='+$('#imgDiv').attr('data-value')); //KoalaImage
+		alert('결과 ='+$('#img').attr('src')); // images/Koala.jpg
 		
 		$("#img").attr("src","images/Penguins.jpg");
 		$("#img").attr("width","300"); */
+
+		//검색된 태그의 속성값을 여러개 변경할 경우 attr 메소드의 매개변수에 JSON 형식으로
+		//표현된 Object 객체를 전달하여 Object 객체의 속성값으로 태그의 속성값 변경 가능
 		$("#img").attr({"src":"images/Penguins.jpg","width":"300"});
 		
 		
