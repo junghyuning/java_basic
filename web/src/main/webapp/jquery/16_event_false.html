@@ -36,12 +36,13 @@ a, a:visited {
 			$(this).find("a").css("background", "white");
 		});
 		
-		$("div").find("a").click(function() {
+		$("div").find("a").click(function() { //find("a")는 div의 자식태그 중 "a"를 찾는 것.
 			$(this).css("background", "yellow");
+			
+		
 			/* event.preventDefault();
-			event.stopPropagation(); */
-			
-			
+			event.stopPropagation(); 
+			=> 둘을 합쳐 return false;*/ 
 			// 이벤트 처리 함수에서 [false]반환시, 태그의 기본이벤트 및 이벤트 전달이 중지
 			// + 이벤트 처리 함수 종료
 			return false; 

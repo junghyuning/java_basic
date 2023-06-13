@@ -40,9 +40,9 @@ div {
 	<script type="text/javascript">
 	$("ul li").click(function() {
 		//이벤트 처리 함수에서 this 키워드는 이벤트가 발생된 태그(Element 객체)를 표현
-		var choice=$(this).text();//이벤트가 발생된 태그의 태그내용을 반환받아 변수에 저장
+		var choice=$(this).text();//이벤트가 발생된 태그의 태그내용을 반환받아 변수에 저장 (태그 제외하고 내용만 저장 됨.)
 		
-		$("#menu").text(choice);//선택자로 검색된 태그의 태그내용 변경
+		$("#menu").text(choice);//선택자로 검색된 태그의 태그내용 변경 //태그의 내용까지 문자로 출력
 	});	
 	</script>
 </body>

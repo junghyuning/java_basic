@@ -10,7 +10,7 @@ div {
 	width: 350px;
 	margin: 0 auto;
 	padding: 50px;
-	font-size: 1.2em;
+	font-size: 1.2em; /* em : 부모노드를 기준으로 하는 상대적 글자 크기 (부모가 없을 경우 16px을 기준으로 함) */
 	text-align: center;
 	border: 1px solid black;
 }
@@ -23,7 +23,7 @@ div {
 
 
 	<script type="text/javascript">
-		/* $("div").click(function() {
+		/*  $("div").click(function() {
 			$(this).css("color","red");
 		});
 		
@@ -32,19 +32,23 @@ div {
 			$(this).css("background","yellow");
 		}); 
 		
-	 	$("div").hover(function() {
-			$(this).css("background","olive");
-		}); 
-		
-		
 		$("div").mouseout(function() {
 			$(this).css({'color':'black', "background":"white"});
 		});
-		 */
+
+		
+		$("div").hover(function() {
+			  $(this).css("background", "olive");
+			}, function() {
+			  $(this).css({"background":"", "color":""}); // 또는 원래의 배경색을 지정
+			}); */
+		
+		
+		
 		//$(selector).on(type,callback) : 선택자로 검색된 태그에서 발생되는 이벤트에 대한 이벤트 처리함수를 등록하는 메서드
-/* 		$("div").on("click", function(){
+		$("div").on("click", function(){
 			$(this).css("color", "red");
-		}); */
+		}); 
 		
 		//선택자로 검색된 태그에서 발생되는 다수의 이벤트에 대한 이벤트 처리 함수를 등록할 경우 on() 메서드를 이용하는것을 권장
 		//=> on() 메서드 매개변수에 JSON 형식으로 표현된 Object 객체를 전달하여 속성명으로 이벤트 명을 전달하고 속성값으로 이벤트 처리 함수 등록
@@ -56,9 +60,9 @@ div {
 				$(this).css("background","yellow");
 			},
 			"mouseout": function() {
-				$(this).css("background","white");
+				$(this).css({"background":"", "color":""}); //or white, yellow 기입
 			}
-		})
+		}) 
 	</script>
 </body>
 </html>

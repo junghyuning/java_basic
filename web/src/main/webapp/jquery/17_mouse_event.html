@@ -41,14 +41,14 @@ div {
 	<div>마우스 이벤트-5</div>
 
 	<script type="text/javascript">
-/* 		$("div").click(function() {
+/* 		$("div").click(function() { //클릭이벤트
 
-			if ($(this).attr("class") != "mystyle") {
+			if ($(this).attr("class") != "mystyle") {  //mystyle 클래스가 아닐때
 				//$(selector).addClass(name) : 선택자로 검색된 태그에 class 속성값을 추가하는 메서드
-				$(this).addClass("mystyle");
+				$(this).addClass("mystyle"); //클래스로 mystyle을 추가 -> mystyle에 부여된 스타일을 추가할 수 있음
 			} else {
 				//$(selector).removeClass(name) : 선택자로 검색된 태그에 class 속성값을 제거하는 메서드
-				$(this).removeClass("mystyle");
+				$(this).removeClass("mystyle"); 
 			}
 //if문을 쓸 필요가 없는 토글 클래스
 			//$(selector).toggleClass(name) : 선택자로 검색된 태그에 class 속성값을 현상태와 반대로 바꾸는 메서드
@@ -68,9 +68,9 @@ div {
 			$(this).removeClass("mystyle");
 		}); */
 		
-		$("div").hover(function() {
+		$("div").hover(function() { // 마우스가 들어갈때
 			$(this).addClass("mystyle");
-		}, function() {
+		}, function() { //마우스가 나갈때
 			$(this).removeClass("mystyle");
 		});
 		
