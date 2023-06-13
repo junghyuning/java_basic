@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script> 
+</head>
+<body>
+	<h1>Scroll Event</h1>
+	<hr>
+	<div id="displayDiv"></div>
+	
+	<script type="text/javascript">
+		function displayImage(){
+			for(i=0; i<=9; i++){
+				$("#displayDiv").append("<div><img src='images/"+i+".png' width='100'></div>");
+			}
+		}
+		
+		displayImage();
+		
+		
+		//$(selector).scroll(callback) : 선택자로 검색된 태그(window 객체 - 브라우저)에서 스크롤을 움직이는 이벤트가 발생될 경우 콜백함수(이벤트 처리 함수)를 호출하는 메서드
+		$(window).scroll(function(){
+			//alert("스크롤 이벤트 발생");
+			
+			var docH=$(document).height();
+			//alert(docH); //1360
+			
+			
+			//$(selector).scrollTop() : 스크롤바의 보이지 않는영역 높이 반환(보이지않는영역 = 이미 스크롤 되어 올라간 윗영역)
+			var scrollH=$(window).height()+$(window).scrollTop();
+			if(scrollH >= docH) {//스크롤이 document 객체의 마지막에 위치한 경우
+				displayImage();
+			}
+		});
+	</script>
+</body>
+</html>
