@@ -76,7 +76,9 @@ legend {
 	
 	//$(selector).submit(callback) : 선택자로 검색된 태그(form 태그)에서 서브밋 이벤트 발생되는 이벤트 발생될 경우
 	//콜백함수
-	$("#joinForm").submit(function() {
+	
+	//버튼 클릭이벤트와 다른 점 => enter를 통해 submit을 해도 일괄로 검사가 가능
+	$("#joinForm").submit(function() { 
 		var result=true;
 		
 		//에러 메세지를 출력하는 모든 태그의 태그내용을 초기화 처리
@@ -108,11 +110,13 @@ legend {
 		
 		//입력값 검증이 실패한 경우 이벤트 처리 함수 종료 + 폼태그가 실행되지 않도록 false 반환
 		if(!result) return false;
+		
+		//여기까지 모든 입력값 검증이 성공하면 submit 이벤트가 발생함
 	})
 	
 	
 	//reset시 폼태그 초기화 불필요
-	$("#resetBtn").click(function() {
+	$("#resetBtn").click(function() {  // 타입이 reset 이므로 reset이벤트가 발생함.
 		$("#id").focus();
 		$(".error").text("");
 	});

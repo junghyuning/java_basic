@@ -57,7 +57,7 @@ h3 {
 	
 	<script type="text/javascript">
 	//선택자로 검색된 태그를 비활성화 처리되도록 태그 속성값 변경
-	$("#btn").attr("disabled", "disabled");
+	$("#btn").attr("disabled", "disabled");  // 속성값으로는 "disabled" == true  // 활성화 시에는 속성자체를 삭제하거나 속성값으로 false를 반환
 	
 	//$(selector).change(callback) : 선택자로 검색된 태그(입력태그)의 입력값이 변경되는
 	//이벤트가 발생되는 경우 콜백함수(이벤트 처리 함수)를 호출하는 메소드
@@ -70,7 +70,7 @@ h3 {
 		//[false] 또는 [true]를 반환하는 메소드
 		// => input 태그(type 속성값 - checkbox 또는 radio)와 select 태그(option 태그)에서만 사용 가능
 		if($(this).is(":checked")) {//이벤트가 발생된 태그(checkbox 또는 radio)가 선택상태(checked)인 경우
-			check=1;
+			check=1; //check 1 반환
 			//$(selector).removeAttr(name) : 선택자로 검색된 태그의 속성을 삭제하는 메소드
 			$("#btn").removeAttr("disabled");
 		} else {
@@ -78,11 +78,12 @@ h3 {
 			$("#btn").attr("disabled", "disabled");
 		}
 		
-		$(this).val(check);
+		$(this).val(check); // 아래의 제출이벤트에서 사용하기 위해 현재 요소(#agreeCheck 객체)값을 설정하는 것. check에는 0 or 1 저장 돼 있음.
 	});
 	
 	$("#termsForm").submit(function() {
-		if($("#agreeCheck").val()==0) {
+		//$("selector").val() : 선택자로 검색된 태그의 값을 가지고 오는 것.
+		if($("#agreeCheck").val()==0) { // check == 0 => 약관 미동의 상태일 때
 			$("#message").text("약관을 읽고 반드시 동의해 주세요.");
 			return false;//form 태그 미실행
 		}
