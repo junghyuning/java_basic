@@ -27,8 +27,9 @@ public class HelloServlet extends HttpServlet {
 	// => doGet() : 클라이언트가 서블릿 프로그램을 GET 방식으로 요청한 경우 호출되는 메소드
 	// => doPost() : 클라이언트가 서블릿 프로그램을 POST 방식으로 요청한 경우 호출되는 메소드
 	//doGet() 메소드 또는 doPost() 메소드 대신 service() 메소드를 오버라이드 선언 가능
-	// => service() 메소드 : 클라이언트가 서블릿 프로그램을 모든 방식으로 요청한 경우 호출되는 메소드
-	// => doGet() 메소드 또는 doPost() 메소드보다 service() 메소드의 호출 우선순위가 높게 설정
+	// => service() 메소드 : 일반적으로 사용하는 방식으로 클라이언트가 서블릿 프로그램을 모든 방식으로 요청한 경우 호출되는 메소드 (get으로 요청하든 post로 요청하든 응답하는 메서드)
+	// => doGet() 메소드 또는 doPost() 메소드보다 service() 메소드의 호출 우선순위가 높게 설정 
+			//-> 따라서 서비스메서드를 생성할 경우, doGet과 doPost는 전혀 호출되지 않게 되므로 생성하지 않도록 함.
 	//WAS 프로그램에 의해 요청 처리 메소드가 호출될 때 메소드 매개변수에는 HttpServletRequest
 	//객체(request 객체)과 HttpServletResponse 객체(response 객체)가 전달되어 저장
 	@Override 
