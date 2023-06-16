@@ -62,7 +62,7 @@ public class JoinServlet extends HttpServlet {
 		// HttpServletRequest.getParameter(String name) : 매개변수로 전달된 이름의 전달값을 문자열로 반환하는
 		// 메서드
 
-		// -> 매개변수의 이름으로 전달된 값이 없는 경우 [null] 반환
+		// -> 매개변수의 이름(name)으로 전달된 값이 없는 경우 [null] 반환
 		String id = request.getParameter("id");
 		String passwd = request.getParameter("passwd");
 		String name = request.getParameter("name");
