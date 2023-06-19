@@ -37,7 +37,7 @@ public class UploadServlet extends HttpServlet {
 		PrintWriter out=response.getWriter();
 		
 		if(request.getMethod().equals("GET")) {
-			response.sendRedirect("fileupload.html");
+			response.sendRedirect("fileupload.html"); //정적리소스로 연결
 			return;
 		}
 		

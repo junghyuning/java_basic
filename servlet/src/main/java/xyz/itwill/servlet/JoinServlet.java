@@ -78,10 +78,10 @@ public class JoinServlet extends HttpServlet {
 		// ==> 보안 때문
 		/*
 		 * if(id==null || id.equals("")) { // 전달값이 없는 경우 - 비정상 요청
-		 * response.sendError(HttpServletResponse.SC_BAD_REQUEST);//400 return; }
+		 * response.sendError(HttpServletResponse.SC_BAD_REQUEST);} //400 return; 클라이언트 오류
 		 * 
 		 * if(!Pattern.matches("^[a-zA-Z]\\w{5,19}$", id)) { //전달값이 패턴에 맞지 않는 경우 - 비정상
-		 * 요청 response.sendError(HttpServletResponse.SC_BAD_REQUEST);//400 return; }
+		 * 요청 response.sendError(HttpServletResponse.SC_BAD_REQUEST);} //400 return; 
 		 */
 		out.println("<!DOCTYPE html>");
 		out.println("<html>");

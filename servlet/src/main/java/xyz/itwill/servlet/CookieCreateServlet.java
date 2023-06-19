@@ -25,7 +25,8 @@ public class CookieCreateServlet extends HttpServlet {
 
 		countCookie.setMaxAge(24 * 60 * 60);
 
-		// 클라이언트에게 쿠키 전달
+		// 클라이언트에게 쿠키 전달 -> 클라이언트에서 요청이 발생하면, 서버에서 쿠키를 생성하여 클라이언트에 쿠키 부여
+		//create.itwill 요청 발생 -> 쿠키 생성 및 추가 완료 
 		response.addCookie(idCookie);
 		response.addCookie(countCookie);
 
@@ -40,6 +41,7 @@ public class CookieCreateServlet extends HttpServlet {
 		out.println("<hr>");
 		out.println("<p>네 안에 쿠키있다</p>");
 		out.println("<hr>");
+		//쿠키는 이미 저장된 상태 -> 단순히 read.itwill 페이지로 이동하는 링크
 		out.println("<p><a href='read.itwill'>쿠키 읽기</a></p>");
 		out.println("</body>");
 		out.println("</html>");

@@ -38,7 +38,7 @@ public class LifeCycleServlet extends HttpServlet {
 		//name="홍길동";// 생성자에서 초기화 한것과 같은 결과
 		
 		name = config.getServletContext().getInitParameter("name");  // WEB에 정의된 PARAM이 DATA를 받아옴
-		
+		System.out.println(name);
 		//[web.xml]파일의 init-param 엘리먼트로 제공되는 값은 ServletConfig 객체의 getInitParameter(String name) 메서드를 호출하여 값을 얻어와 반환
 		
 		
