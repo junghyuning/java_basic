@@ -9,56 +9,55 @@ import java.util.List;
 
 import xyz.itwill.dto.GuestDTO;
 
-//Guest 테이블에 행을 삽입, 변경, 검색, 삭제하기 위한 기능을 제공하는 클래스
-public class GuestDAO extends JdbcDAO{
+//GUEST 테이블에 행을 삽입,변경,삭제,검색하기 위한 기능을 제공하는 클래스
+public class GuestDAO extends JdbcDAO {
 	private static GuestDAO _dao;
 	
 	private GuestDAO() {
+		// TODO Auto-generated constructor stub
 	}
 	
 	static {
-		_dao = new GuestDAO();
+		_dao=new GuestDAO();
 	}
 	
 	public static GuestDAO getDAO() {
 		return _dao;
 	}
 	
-	//1. 방명록 게시글 정보를 전달받아 GUEST 테이블에 삽입하고 삽입행의 갯수를 반환하는 메서드
+	//방명록 게시글정보를 전달받아 GUEST 테이블에 삽입하고 삽입행의 갯수를 반환하는 메소드
 	public int insertGuest(GuestDTO guest) {
-		Connection con = null;
-		PreparedStatement pstmt = null;
+		Connection con=null;
+		PreparedStatement pstmt=null;
 		int rows=0;
-		
 		try {
-			con = getConnection();
-			String sql = "Insert Into guest values (guest_seq,?,?,?,sysdate)";
-			pstmt = con.prepareStatement(sql);
+			con=getConnection();
+			
+			String sql="insert into guest values(guest_seq.nextval, ?, ?, ?, sysdate)";
+			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, guest.getWriter());
 			pstmt.setString(2, guest.getSubject());
 			pstmt.setString(3, guest.getContent());
 			
 			rows=pstmt.executeUpdate();
 		} catch (SQLException e) {
-			System.out.println("[에러] insertGuest() 메소드의 SQL 오류"+e.getMessage());
+			System.out.println("[에러]insertGuest() 메소드의 SQL 오류 = "+e.getMessage());
 		} finally {
 			close(con, pstmt);
 		}
 		return rows;
-		
 	}
 	
-	
-	//2. 방명록 게시글정보를 전달받아 GUEST 테이블에 저장된 행을 변경하고 변경행의 갯수를 반환하는 메소드
+	//방명록 게시글정보를 전달받아 GUEST 테이블에 저장된 행을 변경하고 변경행의 갯수를 반환하는 메소드
 	public int updateGuest(GuestDTO guest) {
-		Connection con = null;
-		PreparedStatement pstmt = null;
+		Connection con=null;
+		PreparedStatement pstmt=null;
 		int rows=0;
-		
 		try {
-			con = getConnection();
-			String sql = "Update guest set writer=?, subjec=?, content=? where num=?";
-			pstmt = con.prepareStatement(sql);
+			con=getConnection();
+			
+			String sql="update guest set writer=?, subject=?, content=? where num=?";
+			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, guest.getWriter());
 			pstmt.setString(2, guest.getSubject());
 			pstmt.setString(3, guest.getContent());
@@ -66,53 +65,51 @@ public class GuestDAO extends JdbcDAO{
 			
 			rows=pstmt.executeUpdate();
 		} catch (SQLException e) {
-			System.out.println("[에러] updateGuest() 메소드의 SQL 오류"+e.getMessage());
+			System.out.println("[에러]updateGuest() 메소드의 SQL 오류 = "+e.getMessage());
 		} finally {
 			close(con, pstmt);
 		}
 		return rows;
-		
 	}
 	
-	//3. 방명록 게시글번호를 전달받아 GUEST 테이블에 저장된 행을 삭제하고 삭제행의 갯수를 반환하는 메소드
+	//방명록 게시글번호를 전달받아 GUEST 테이블에 저장된 행을 삭제하고 삭제행의 갯수를 반환하는 메소드
 	public int deleteGuest(int num) {
-		Connection con = null;
-		PreparedStatement pstmt = null;
+		Connection con=null;
+		PreparedStatement pstmt=null;
 		int rows=0;
-		
 		try {
-			con = getConnection();
-			String sql = "delete from guest where num=?";
-			pstmt = con.prepareStatement(sql);
+			con=getConnection();
+			
+			String sql="delete from guest where num=?";
+			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			
 			rows=pstmt.executeUpdate();
 		} catch (SQLException e) {
-			System.out.println("[에러] deleteGuest() 메소드의 SQL 오류"+e.getMessage());
+			System.out.println("[에러]deleteGuest() 메소드의 SQL 오류 = "+e.getMessage());
 		} finally {
 			close(con, pstmt);
 		}
 		return rows;
 	}
 	
-	//4. 방명록 게시글번호를 전달받아 GUEST 테이블에 저장된 행을 검색하여 반환하는 메소드
-	//=> primary 키 => 1행만 존재 -> dto객체로 반환 가능
+	//방명록 게시글번호를 전달받아 GUEST 테이블에 저장된 행을 검색하여 DTO 객체를 반환하는 메소드
 	public GuestDTO selectGuest(int num) {
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		GuestDTO guest = null;
-		
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		GuestDTO guest=null;
 		try {
-			con = getConnection();
-			String sql = "select * from guest where num=?";
-			pstmt = con.prepareStatement(sql);
+			con=getConnection();
+			
+			String sql="select * from guest where num=?";
+			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			
 			rs=pstmt.executeQuery();
-			//해당 select문으로 출력될 행이 1개 혹은 0 개 이므로 if문을 사용하는것이 효율적
-			if (rs.next()) {
-				guest = new GuestDTO();
+			
+			if(rs.next()) {
+				guest=new GuestDTO();
 				guest.setNum(rs.getInt("num"));
 				guest.setWriter(rs.getString("writer"));
 				guest.setSubject(rs.getString("subject"));
@@ -120,42 +117,42 @@ public class GuestDAO extends JdbcDAO{
 				guest.setRegdate(rs.getString("regdate"));
 			}
 		} catch (SQLException e) {
-			// TODO: handle exception
+			System.out.println("[에러]selectGuest() 메소드의 SQL 오류 = "+e.getMessage());
 		} finally {
 			close(con, pstmt, rs);
 		}
-		
 		return guest;
 	}
 	
-	//5. GUEST 테이블에 저장된 모든 행을 검색하여 반환하는 메소드
+	//GUEST 테이블에 저장된 모든 행을 검색하여 List 객체로 반환하는 메소드
 	public List<GuestDTO> selectGuestList() {
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		List<GuestDTO> guestList = new ArrayList<>();
-		
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		List<GuestDTO> guestList=new ArrayList<>();
 		try {
-			con = getConnection();
-			String sql = "select * from guest order by num desc";
-			pstmt = con.prepareStatement(sql);
+			con=getConnection();
+			
+			String sql="select * from guest order by num desc";
+			pstmt=con.prepareStatement(sql);
+			
 			rs=pstmt.executeQuery();
 			
-			while (rs.next()) {
-				GuestDTO guest = new GuestDTO();
+			while(rs.next()) {
+				GuestDTO guest=new GuestDTO();
 				guest.setNum(rs.getInt("num"));
 				guest.setWriter(rs.getString("writer"));
 				guest.setSubject(rs.getString("subject"));
 				guest.setContent(rs.getString("content"));
 				guest.setRegdate(rs.getString("regdate"));
+				
 				guestList.add(guest);
 			}
 		} catch (SQLException e) {
-			System.out.println("[에러] selectGuest() 메소드의 SQL 오류"+e.getMessage());
+			System.out.println("[에러]selectGuestList() 메소드의 SQL 오류 = "+e.getMessage());
 		} finally {
 			close(con, pstmt, rs);
 		}
-		
 		return guestList;
 	}
 	
