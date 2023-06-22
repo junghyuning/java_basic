@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd ">
+  <tlib-version>1.0</tlib-version>
+  <short-name>custom</short-name>
+  <!--uri : tld 파일을 구분할 수 있는 식별자 역할로 중복돼서는 안됨 -->
+  <uri>http://www.itwill.xyz/custom</uri>
+  <tag>
+  	<name>display</name>
+  	<tag-class>xyz.itwill.custom.CustomTag</tag-class>
+  	<body-content>empty</body-content>
+  </tag>
+</taglib>
