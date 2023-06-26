@@ -48,13 +48,13 @@ div {
 	font-size: 1.2em;
 }
 </style>
---%>
+아래 링크로 대체 가능--%>
 <link href="style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 	<%-- Header 영역 : 페이지 머릿부 - 로고, 메뉴 등 --%>
 	<div id="header">
-		<%-- 
+		<%-- header.jspf 파일을 별도로 생성하여 인클루드 디렉티브 태그를 사용하여 포함 시킴
 		<h1><a href="index.jsp">쇼핑몰</a></h1>
 		<div id="menu">
 			<a href="login.jsp">로그인</a>&nbsp;&nbsp;

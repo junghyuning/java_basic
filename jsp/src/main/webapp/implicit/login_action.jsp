@@ -19,6 +19,7 @@
 	}
 
 	//리퀘스트 메세지 몸체부에 저장되어 전달되어 전달된는 값에 대한 문자형태
+	//데이터를 전달받아 처리하기 전에 문자를 처리할 인코딩 정보를 설정하는 것.
 	request.setCharacterEncoding("utf-8");
 	
 	//request.getParameter(String name) : 전달값을 문자열(String 객체)로 반환하는 메서드
