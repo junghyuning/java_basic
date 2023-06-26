@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- context.xml : WAS 프로그램에 의해 관리될 객체 관련 정보를 제공하기 위한 파일 -->
+<!-- => WAS 프로그램이 실행(Start) 될 때 자동으로 파일을 읽어 객체를 생성하여 WAS 프로그램에 의해 관리 됨 -->
+
+<!-- server가 start 될때 메모리에 load 됨  -->
+<Context>
+	<Resource name ="jdbc/oracle" auth="Container" 
+		factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
+		type="javax.sql.DataSource" driverClassName="oracle.jdbc.driver.OracleDriver"
+		url = "jdbc:oracle:thin:@localhost:1521:xe" username="scott" password="tiger" 
+		initialSize="10" maxIdle="10" maxTotal="15"/>
+</Context>
