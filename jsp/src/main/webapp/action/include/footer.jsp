@@ -11,7 +11,7 @@
 	//request 객체의 사용에 제약이 있기 때문에,,, request객체의 정보를 반환받아 사용할 수는 있어도
 	//객체 정보를 "변경"하는 것은 불가능 (ex. setCharacterEncoding)
 	//request.setCharacterEncoding("utf-8");
-	String master = request.getParameter("master");
+	String master = request.getParameter("master");  //<jsp: param>태그의 매개변수값을 받아오는 것.
 	
 	
 	//스레드가 이동되어 실행되는 JSP 문서에서는 response객체에 실행결과를 포함하여 요청 JSP 문서에 전달할 수 있지만,

@@ -48,7 +48,7 @@
 	//forward 태그 대신 Java 명령을 사용하여 포워드 이동 가능
 	//request.getRequestDispatcher(String url) : RequestDispatcher 객체를 반환하는 메소드
 	// => RequestDispatcher 객체 : 스레드를 이동하기 위한 정보를 저장한 객체
-	//RequestDispatcher.forward(ServletRequest request, ServletResponse response)
+	//RequestDispatcher.forward(ServletRequest request, ServletResponse response) :리퀘스트 객체를 다른 서블릿에 전달하기위한 객체..?
 	// => 포워드 이동하는 메소드 - forward 태그와 동일 
 	// => 매개변수에 request 객체와 response 객체를 저장하여 스레드가 이동되는 JSP 문서에 전달
 	request.getRequestDispatcher("non_useBean_display.jsp").forward(request, response);
