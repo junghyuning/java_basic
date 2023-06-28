@@ -5,6 +5,7 @@ package xyz.itwill.dto;
 //	, address2 varchar2(100), join_date date, last_login date, member_status number(1));
 
 /*
+ * desc member; 
 이름            널?       유형            
 ------------- -------- ------------- 
 ID            NOT NULL VARCHAR2(30)  - id

@@ -52,8 +52,10 @@ legend {
 	color: white;
 }
 </style>
+<%-- form 작성시, 회원가입의 프로세스가 처리되는 member_join_action.jsp로 데이터를 전송함 --%>
 <form id="join" action="<%=request.getContextPath() %>/member/member_join_action.jsp" method="post">
 <%-- 아이디 중복 검삭 결과를 저장하기 위한 입력태그 --%>
+<%-- id 중복 검사는  --%>
 <%-- => 0 : 아이디 중복 검사 미실행 또는 아이디 중복 - 아이디 사용 불가능 --%>
 <%-- => 1 : 아이디 중복 검사 실행 및 아이디 미중복 - 아이디 사용 가능 --%>
 <input type="hidden" id="idCheckResult" value="0">
@@ -92,6 +94,7 @@ legend {
 		</li>
 		<li>
 			<label for="mobile">전화번호</label>
+			<%-- 선택 토글창 : select 태그--%>
 			<select name="mobile1">
 				<option value="010" selected>&nbsp;010&nbsp;</option>
 				<option value="011">&nbsp;011&nbsp;</option>
@@ -100,10 +103,10 @@ legend {
 				<option value="018">&nbsp;018&nbsp;</option>
 				<option value="019">&nbsp;019&nbsp;</option>
 			</select>
-			- <input type="text" name="mobile2" id="mobile2" size="4" maxlength="4">
-			- <input type="text" name="mobile3" id="mobile3" size="4" maxlength="4">
+			 <input type="text" name="mobile2" id="mobile2" size="4" maxlength="4">
+			 <input type="text" name="mobile3" id="mobile3" size="4" maxlength="4">
 			<div id="mobileMsg" class="error">전화번호를 입력해 입력해 주세요.</div>
-			<div id="mobileRegMsg" class="error">전화번호는 3~4 자리의 숫자로만 입력해 주세요.</div>
+			<div id="mobileRegM sg" class="error">전화번호는 3~4 자리의 숫자로만 입력해 주세요.</div>
 		</li>
 		<li>
 			<label>우편번호</label>
@@ -132,20 +135,23 @@ legend {
 <script type="text/javascript">
 $("#id").focus();
 
-$("#join").submit(function() {
+$("#join").submit(function() { //회원가입버튼의 제출 이벤트
 	var submitResult=true;
 	
-	$(".error").css("display","none");
+	$(".error").css("display","none"); // 처음에는 에러메세지를 숨김 (.error = error클래스)
 
 	var idReg=/^[a-zA-Z]\w{5,19}$/g;
-	if($("#id").val()=="") {
-		$("#idMsg").css("display","block");
+	//.val() : 주어진 요소의 값을 가져오거나 설정하는 데 사용 => 주로 <input>, <select>, <textarea>와 같은 폼 요소에서 값을 읽거나 설정
+	if($("#id").val()=="") { //입력 여부
+		/* 안보이게 설정하기위해서는 display 속성값으로 none 사용 */
+		$("#idMsg").css("display","block"); //idMSG 태그 블럭이 보이도록 설정하는 것. - 아이디를 입력하세요
 		submitResult=false;
 	} else if(!idReg.test($("#id").val())) {
-		$("#idRegMsg").css("display","block");
+		$("#idRegMsg").css("display","block"); //형식 검증 : 아이디는 영문자로 시작되는 영문자,숫자,_의 6~20범위의 문자로만 작성 가능합니다.
 		submitResult=false;
-	} else if($("#idCheckResult").val()=="0") {
-		$("#idCheckMsg").css("display","block");
+	} else if($("#idCheckResult").val()=="0") { // 사용할 수 없는 아이디 일 때 
+		$("#idCheckMsg").css("display","block"); //아이디 중복 검사를 반드시 실행해 주세요. = = 중복이거나 검사를 하지 않음
+		submitResult=false;
 	}
 		
 	var passwdReg=/^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[~!@#$%^&*_-]).{6,20}$/g;
@@ -207,21 +213,22 @@ $("#join").submit(function() {
 	return submitResult;
 });
 
+/* id = "idcheck"를 가진 태그의 클릭이벤트를 등록하는 제이쿼리.  */
 $("#idCheck").click(function() {
 	//아이디 관련 에러메세지가 보여지지 않도록 설정	
 	$("#idMsg").css("display","none");
 	$("#idRegMsg").css("display","none");
 	
 	var idReg=/^[a-zA-Z]\w{5,19}$/g;
-	if($("#id").val()=="") {
-		$("#idMsg").css("display","block");
+	if($("#id").val()=="") { //아이디를 입력하지 않았을 경우
+		$("#idMsg").css("display","block"); 
 		return;
 	} else if(!idReg.test($("#id").val())) {
 		$("#idRegMsg").css("display","block");
 		return;
 	}
 	
-	//팝업창을 실행하여 [id_check.jsp] 문서 요청
+	//팝업창을 실행하여 [id_check.jsp] 문서 요청 => GET방식으로 id에 입력된 값을 전송함.
 	window.open("<%=request.getContextPath()%>/member/id_check.jsp?id="+$("#id").val()
 			,"idCheck", "width=450, height=130, left=700, top=400");
 });
