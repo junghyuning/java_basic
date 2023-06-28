@@ -15,7 +15,7 @@
 		<%=loginMember.getName() %>님, 환영합니다.&nbsp;&nbsp;
 		<%-- 절대경로로 표현하기 위해 웹 애플리케이션의 루트 경로(COntextPath) + 폴더 및 파일의 위치  --%>
 		<a href="<%=request.getContextPath() %>/member/member_logout_action.jsp">로그아웃</a>&nbsp;&nbsp;
-		<%-- MEMBER_STATUS          NUMBER(1)  - 회원상태 : 0(탈퇴), 1(일반), 9(관리자) --%>
+		<%-- MEMBER_STATUS NUMBER(1)  - 회원상태 : 0(탈퇴), 1(일반), 9(관리자) --%>
 		<% if(loginMember.getMemberStatus()==1) {//로그인 사용자가 일반사용자인 경우 %>
 			<a href="index.jsp?group=member&worker=member_mypage">마이페이지</a>&nbsp;&nbsp;
 		<% } else if(loginMember.getMemberStatus()==9) {//로그인 사용자가 관리자인 경우 %>

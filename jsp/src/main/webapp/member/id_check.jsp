@@ -77,7 +77,6 @@ div {
 			document.getElementById("message").innerHTML="아이디를 형식에 맞게 입력해 주세요.";
 			return;
 		}
-		
 		checkForm.submit();
 	}	
 	</script>
