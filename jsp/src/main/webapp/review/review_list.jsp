@@ -222,7 +222,7 @@ td {
 	
 		//페이지 블럭에 출력될 시작 페이지 번호를 계산하여 저장
 		//ex)1Block : 1, 2Block : 6, 3Block : 11, 4Block : 16, ...
-		int startPage=(pageNum-1)/blockSize*blockSize+1;		
+		int startPage=(pageNum-1)/blockSize*blockSize+1;	// 인티저이기때문에 -> 
 
 		//페이지 블럭에 출력될 종료 페이지 번호를 계산하여 저장
 		//ex)1Block : 5, 2Block : 10, 3Block : 15, 4Block : 20, ...
