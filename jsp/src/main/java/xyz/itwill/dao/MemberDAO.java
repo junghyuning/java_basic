@@ -210,6 +210,35 @@ public class MemberDAO extends JdbcDAO {
 		}
 		return member;
 	}
+
+	
+	//
+	public String selectMemberId(MemberDTO member) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		String id = null;
+		try {
+			con = getConnection();
+			
+			String sql = "select id from member where name=? and email=? and member_status!=0";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, member.getName());
+			pstmt.setString(2, member.getEmail());
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				member=new MemberDTO();
+				member.setId(rs.getString("id"));
+			}
+			id = member.getId();
+		} catch (SQLException e) {
+			System.out.println("[에러]nameSelectMember 메소드의 SQL 오류 = "+e.getMessage());
+		} finally {
+			close(con, pstmt, rs);
+		}
+		return id;
+	}
 	
 }
 

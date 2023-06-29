@@ -5,6 +5,24 @@
 <%
 	System.out.println("서치 아이디");
 	String message = (String)session.getAttribute("message");
+	if(message==null){
+		message="";
+	}else {
+		session.removeAttribute("message");
+	}
+	String name = (String)session.getAttribute("name");
+	if(name==null){
+		name="";
+	}else {
+		session.removeAttribute("name");
+	}
+	String email = (String)session.getAttribute("email");
+	if(email==null){
+		email="";
+	}else {
+		session.removeAttribute("email");
+	}
+	
 %>
 <style type="text/css">
 .search_tag {
@@ -49,17 +67,16 @@
 	<ul class="search_tag">
 		<li>
 			<label for="name">이름</label>
-			<input type="text" name="name" id="name">
+			<input type="text" name="name" id="name" value="<%=name %>">
 		</li>
 		<li>
 			<label for="email">이메일</label>
-			<input type="text" name="email" id="email">
+			<input type="text" name="email" id="email" value="<%=email %>">
 		</li>
 	</ul>
 	<div id="search_btn">아이디 검색</div>
 	<div id="message"><%= message %></div>
 </form>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
 $("#name").focus();
 
