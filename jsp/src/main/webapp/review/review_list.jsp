@@ -8,6 +8,10 @@
     pageEncoding="UTF-8"%>
 <%-- REVIEW 테이블에 저장된 게시글을 검색하여 게시글 목록을 클라이언트에게 전달하여 응답하는 JSP 문서 --%>
 <%-- => 게시글을 페이지로 구분하여 검색 처리 - 페이징 처리 --%>
+<%-- => [페이지번호] 태그를 클릭한 경우 [review/review_list.jsp] 문서 요청 - 페이지번호,검색대상,검색단어 전달 --%>
+<%-- => [검색] 태그를 클릭한 경우 [review/review_list.jsp] 문서 요청 - 검색대상,검색단어 전달 --%>
+<%-- => [글쓰기] 태그를 클릭한 경우 [review/review_write.jsp] 문서 요청 - 로그인 상태의 사용자에게만 링크 제공 --%>
+<%-- => 게시글의 [제목] 태그를 클릭한 경우 [review/review_detail.jsp] 문서 요청 - 글번호, 페이지번호, 검색대상, 검색단어 전달 --%>
 <%
 	//게시글 검색 기능에 필요한 전달값(검색대상과 검색단어)을 반환받아 저장
 	String search=request.getParameter("search");
@@ -43,11 +47,11 @@
 		pageNum=1;//1번째 페이지의 게시글 목록을 검색
 	}
 	
-	//요청 페이지 번호에 대한 시작 게시글의 행번호를 계산하여 저장
+	//페이지 번호에 대한 게시글의 시작 행번호를 계산하여 저장
 	//ex) 1Page : 1, 2Page : 11, 3Page : 21, 4Page : 31, ...
 	int startRow=(pageNum-1)*pageSize+1;
 
-	//요청 페이지 번호에 대한 종료 게시글의 행번호를 계산하여 저장
+	//페이지 번호에 대한 게시글의 종료 행번호를 계산하여 저장
 	//ex) 1Page : 10, 2Page : 20, 3Page : 30, 3Page : 40, ...
 	int endRow=pageNum*pageSize;
 		
@@ -126,7 +130,7 @@ td {
 
 #page_list {
 	font-size: 1.1em;
-	margin-bottom: 10px;
+	margin: 10px;
 }
 
 #page_list a:hover {
@@ -140,11 +144,11 @@ td {
 	
 	<% if(loginMember!=null) {//로그인 상태의 사용자인 경우 %>
 	<div style="text-align: right;">
-		<button type="button">글쓰기</button>
+		<button type="button" onclick="location.href='<%=request.getContextPath()%>/index.jsp?group=review&worker=review_write';">글쓰기</button>
 	</div>
 	<% } %>
 	
-	<%-- 게시글 목록 출력(첫페이지) --%>
+	<%-- 게시글 목록 출력 --%>
 	<table>
 		<tr>
 			<th width="100">글번호</th>
@@ -173,14 +177,15 @@ td {
 						<%-- 게시글의 깊이를 제공받아 왼쪽 여백 설정 --%>
 						<span style="margin-left: <%=review.getRelevel()*20%>px;">└[답글]</span>
 					<% } %>
+					
 					<%-- 게시글의 상태를 비교하여 제목과 링크를 구분하여 응답 처리 --%>
 					<% if(review.getStatus()==1) {//일반 게시글인 경우 %>
-						<a href="#"><%=review.getSubject()%></a>					
+						<a href="<%=request.getContextPath()%>/index.jsp?group=review&worker=review_detail&num=<%=review.getNum()%>&pageNum=<%=pageNum%>&search=<%=search%>&keyword=<%=keyword%>"><%=review.getSubject()%></a>					
 					<% } else if(review.getStatus()==2) {//비밀 게시글인 경우 %>
 						<span class="subject_hidden">비밀글</span>
 						<%-- 로그인 상태의 사용자가 게시글 작성자이거나 관리자인 경우 --%>
-						<% if(loginMember!=null && (loginMember.getId().equals(review.getId()) || loginMember.getMemberStatus()==9)) { %>)
-							<a href="#"><%=review.getSubject()%></a>					
+						<% if(loginMember!=null && (loginMember.getId().equals(review.getReviewid()) || loginMember.getMemberStatus()==9)) { %>
+							<a href="<%=request.getContextPath()%>/index.jsp?group=review&worker=review_detail&num=<%=review.getNum()%>&pageNum=<%=pageNum%>&search=<%=search%>&keyword=<%=keyword%>">"><%=review.getSubject()%></a>					
 						<% } else { %>
 							게시글 작성자 또는 관리자만 확인 가능합니다.
 						<% } %>
@@ -222,7 +227,7 @@ td {
 	
 		//페이지 블럭에 출력될 시작 페이지 번호를 계산하여 저장
 		//ex)1Block : 1, 2Block : 6, 3Block : 11, 4Block : 16, ...
-		int startPage=(pageNum-1)/blockSize*blockSize+1;	// 인티저이기때문에 -> 
+		int startPage=(pageNum-1)/blockSize*blockSize+1;		
 
 		//페이지 블럭에 출력될 종료 페이지 번호를 계산하여 저장
 		//ex)1Block : 5, 2Block : 10, 3Block : 15, 4Block : 20, ...
@@ -240,10 +245,10 @@ td {
 	
 	<% for(int i=startPage;i<=endPage;i++) { %>
 		<% if(pageNum!=i) { %>
-			<%-- 요청 페이지 번호와 이벤트가 발생된 페이지 번호가 다른 경우 링크 제공(보고있는 페이지와 같은 페이지 선택시에는 화면변화x) --%>
+			<%-- 요청 페이지 번호와 이벤트가 발생된 페이지 번호가 다른 경우 링크 제공 --%>
 			<a href="<%=request.getContextPath()%>/index.jsp?group=review&worker=review_list&pageNum=<%=i%>&search=<%=search%>&keyword=<%=keyword%>">[<%=i %>]</a>
 		<% } else { %>
-			<%-- 요청 페이지 번호와 이벤트가 발생된 페이지 번호가 같은 경우 링크 미제공 (이미 보고있는 페이지를 선택했을 경우--%>
+			<%-- 요청 페이지 번호와 이벤트가 발생된 페이지 번호가 같은 경우 링크 미제공 --%>
 			[<%=i %>]
 		<% } %>
 	<% } %>
@@ -264,6 +269,6 @@ td {
 			<option value="content">&nbsp;내용&nbsp;</option>
 		</select>
 		<input type="text" name="keyword">
-		<button type="submit">게시글 검색</button>
+		<button type="submit">검색</button>
 	</form>
 </div>

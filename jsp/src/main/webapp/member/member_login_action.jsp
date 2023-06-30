@@ -13,7 +13,7 @@
 		return;
 	}
 
-	//전달값을 반환받아 저장
+	//전달값을 반환받아 저장 (로그인에 실패하여 다시 로그인 문서로 돌아올 경우 필요)
 	String id=request.getParameter("id");
 	String passwd=Utility.encrypt(request.getParameter("passwd"));
 	

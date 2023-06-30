@@ -38,7 +38,7 @@ public class MemberDAO extends JdbcDAO {
 		return _dao;
 	}
 	
-	//회원정보를 전달받아 MEMBER 테이블에 삽입하고 삽입행의 갯수를 반환하는 메소드
+	//1. 회원정보를 전달받아 MEMBER 테이블에 삽입하고 삽입행의 갯수를 반환하는 메소드
 	public int insertMember(MemberDTO member) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
@@ -66,7 +66,7 @@ public class MemberDAO extends JdbcDAO {
 		return rows;
 	}
 	
-	//아이디를 전달받아 MEMBER 테이블에 저장된 회원정보를 검색하여 DTO 객체로 반환하는 메소드
+	//2. 아이디를 전달받아 MEMBER 테이블에 저장된 회원정보를 검색하여 DTO 객체로 반환하는 메소드
 	public MemberDTO selectMember(String id) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
@@ -103,7 +103,7 @@ public class MemberDAO extends JdbcDAO {
 		return member;
 	}
 	
-	//아이디를 전달받아 MEMBER 테이블에 저장된 회원정보의 마지막 로그인 날짜를 변경하고 변경행의 갯수를 반환하는 메소드
+	//3. 아이디를 전달받아 MEMBER 테이블에 저장된 회원정보의 마지막 로그인 날짜를 변경하고 변경행의 갯수를 반환하는 메소드
 	public int updateLastLogin(String id) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
@@ -124,7 +124,7 @@ public class MemberDAO extends JdbcDAO {
 		return rows;
 	}
 	
-	//회원정보를 전달받아 MEMBER 테이블에 저장된 회원정보를 변경하고 변경행의 갯수를 반환하는 메소드
+	//4. 회원정보를 전달받아 MEMBER 테이블에 저장된 회원정보를 변경하고 변경행의 갯수를 반환하는 메소드
 	public int updateMember(MemberDTO member) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
@@ -153,7 +153,7 @@ public class MemberDAO extends JdbcDAO {
 		return rows;
 	}
 	
-	//아이디와 회원상태를 전달받아 MEMBER 테이블에 저장된 회원정보의 회원상태를 변경하고 변경행의 갯수를 반환하는 메소드
+	//5. 아이디와 회원상태를 전달받아 MEMBER 테이블에 저장된 회원정보의 회원상태를 변경하고 변경행의 갯수를 반환하는 메소드
 	public int updateMemberStatus(String id, int memberStatus) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
@@ -175,6 +175,7 @@ public class MemberDAO extends JdbcDAO {
 		return rows;
 	}
 	
+	//이름과 이메일을 받아 멤버객체를 검색하고 반환
 	public MemberDTO nameSelectMember(String name, String email) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
