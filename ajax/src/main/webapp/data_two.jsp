@@ -1,9 +1,9 @@
+<%@page import="org.apache.tomcat.util.descriptor.XmlErrorHandler"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	for(int i=1;i<=200000;i++) {
-		System.out.println(i+"번째 처리중...");
-	}
+	request.setCharacterEncoding("utf-8");
+	String name = request.getParameter("name");
 %>    
 <!DOCTYPE html>
 <html>
@@ -12,6 +12,6 @@
 <title>AJAX</title>
 </head>
 <body>
-	안녕하세요. 에이젝스!!!
+	<%=name %>님, 안녕하세요.
 </body>
 </html>

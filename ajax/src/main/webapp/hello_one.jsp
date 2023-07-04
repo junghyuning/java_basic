@@ -49,11 +49,12 @@
 			xhr = new XMLHttpRequest();
 
 			//2.XMLHttpRequest 객체의 준비상태(ReadyState)가 변경될 경우 호출될 이벤트 처리 함수 등록
+			//XMLHttpRequest.onreadychange : XMLHtmlRequest 객체의 준비상태가 변경되는 이벤트 리스너 속성(프로퍼티)
 			//XMLHttpRequest.readyState : XMLHttpRequest 객체의 준비상태 정보를 저장한 프로퍼티
 			// => XMLHttpRequest 객체의 준비상태 순차적으로 자동 변경
 			// => 0 : XMLHttpRequest 객체 생성, 1 : open() 메소드 호출 - 웹프로그램 요청 설정 
 			//, 2 : send 메소드() 호출 -  웹프로그램 요청, 3 : 웹프로그램 실행, 4 : 실행결과 응답   
-			xhr.onreadystatechange = changeHTML;
+			xhr.onreadystatechange = changeHTML; // xhr 객체의 준비상태가 바뀔때마다 changeHTML을 호출하라는 이벤트 처리 함수
 
 			//3.XMLHttpRequest 객체로 open() 메소드 호출 - 준비상태가 [1]로 자동 변경
 			//XMLHttpRequest.open(method, url[, async]) : XMLHttpRequest 객체로 웹프로그램을 
@@ -93,6 +94,7 @@
 				if (xhr.status == 200) {//웹프로그램 요청에 대한 정상적인 실행결과를 받은 경우
 					//XMLHttpRequest.responseText : 웹프로그램 요청에 대한 실행결과를 HTML 형식의
 					//텍스트로 응답받은 경우 응답결과를 저장한 프로퍼티
+					//alert(xhr.responseText)
 					document.getElementById("display").innerHTML = xhr.responseText;
 				} else {//웹프로그램 요청에 대한 비정상적인 실행결과를 받은 경우 - 에러코드(4XX 또는 5XX)
 					alert("에러코드 = " + xhr.status);
