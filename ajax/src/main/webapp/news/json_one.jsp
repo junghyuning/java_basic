@@ -51,9 +51,10 @@
 	<script type="text/javascript">
 	document.getElementById("newsList").onmouseover=function() {
 		var xhr=new XMLHttpRequest();
-		xhr.onreadystatechange=function() {
+		//*********************************************************************************************//
+		xhr.onreadystatechange=function() { // xhr객체의 준비상태가 바뀔 때마다 해당 함수를 호출
 			if(xhr.readyState==4) {
-				if(xhr.status==200) {
+				if(xhr.status==200) { //올바른 응답이 돌아왔을 경우
 					//document.getElementById("newsContents").innerHTML=xhr.responseText;
 					
 					//eval(text) : 매개변수로 전달받은 문자값을 자바스트립트 명령을 실행하는 함수
@@ -61,13 +62,16 @@
 					//var result=eval("("+xhr.responseText+")");
 					
 					//JSON.parse(json) : JSON 형식의 데이타를 전달받아 자바스크립트 객체로 변환하여 반환하는 메소드
+					//xml을 제외한 다른 것들은 text로 받게 됨.
+					//제이슨객체 -> 자바스크립트 객체
+					//result는 배열로 작성된 제이슨 데이터를 배열로 받는 Array 객체 임.
 					var result=JSON.parse(xhr.responseText);
 					
 					//alert(result);//[object Object],[object Object],[object Object],[object Object],[object Object] - Array 객체
 					
 					var html="<ol>";
 					for(i=0;i<result.length;i++) {
-						var title=result[i].title;
+						var title=result[i].title; 
 						var publisher=result[i].publisher;
 						html+="<li>"+title+"["+publisher+"]</li>";
 					}
@@ -76,14 +80,16 @@
 					document.getElementById("newsContents").innerHTML=html;
 					
 					document.getElementById("newsContents").style="display: block;";
-				} else {
+				} else { //상태코드가 200번이 아닐시
 					alert("에러코드 = "+xhr.status);
 				}
 			}
+		//readyState != 4 일경우, 아무런 일도 수행하지 않음.
 		}
+		//*************************************************************************************************//
 		
-		xhr.open("get", "json_two.jsp");
-		xhr.send(null);
+		xhr.open("get", "json_two.jsp"); //준비상태 [1] : 요청 설정
+		xhr.send(null); //준비상태 [2] : 요청 => [3],[4] 
 	}
 	
 	document.getElementById("newsList").onmouseout=function() {
