@@ -58,7 +58,7 @@
 					//응답받은 경우 응답결과가 저장된 프로퍼티 - XMLDocument 객체 제공
 					//document.getElementById("newsContents").innerHTML=xhr.responseXML;
 					
-					var xmlDoc=xhr.responseXML;
+					var xmlDoc=xhr.responseXML; 
 					//alert(xmlDoc);//[object XMLDocument]
 					
 					//Document.getElementsByTagName(tagName) : Document 객체(Element 객체)에서
