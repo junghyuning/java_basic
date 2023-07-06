@@ -23,7 +23,9 @@
 	<data><![CDATA[
 		[
 		<% for(int i=0;i<suggestList.size();i++) { %>
-			<% if(i>0) { %>,<% } %>
+			<% if(i>0) { //[,]를 찍어서 array를 구분하기 위한 조건문 -> 첫 배열의 요소를 받아올 대는 [,]를 찍을 필요가 없으므로 1부터 받아 옴.%>
+					,
+			<% } %> 
 			{"word":"<%=suggestList.get(i).getWord()%>","url":"<%=suggestList.get(i).getUrl()%>"}
 		<% } %>
 		]

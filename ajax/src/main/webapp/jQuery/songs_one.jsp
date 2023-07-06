@@ -37,7 +37,6 @@
 			error : function() {
 				alert("error code = " + xhr.status);
 			}
-
 		});
 	</script>
 </body>
