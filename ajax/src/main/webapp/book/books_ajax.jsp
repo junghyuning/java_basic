@@ -22,7 +22,7 @@
 	
 	$.ajax({
 		type: "get",
-		url: "books.jsp",
+		url: "books.jsp", //XML 데이터
 		dataType: "xml",
 		success: function(result) {
 			xmlDoc=result;
@@ -35,7 +35,7 @@
 	
 	$.ajax({
 		type: "get",
-		url: "books.xsl",
+		url: "books.xsl", //XSLT 데이터
 		dataType: "xml",
 		success: function(result) {
 			xslDoc=result;

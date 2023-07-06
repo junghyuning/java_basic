@@ -3,7 +3,14 @@ package xyz.itwill.dto;
 //create table ajax_comment(num number primary key, writer varchar2(50)
 //       , content varchar2(500), regdate date);
 //create sequence ajax_comment_seq;    
-
+/*
+이름      널?       유형           
+------- -------- ------------ 
+NUM     NOT NULL NUMBER        - 글번호
+WRITER           VARCHAR2(50)  - 작성자
+CONTENT          VARCHAR2(50)  - 내용
+REGDATE          DATE     	   - 등록일
+*/
 public class AjaxCommentDTO {
    private int num;
    private String writer;

@@ -155,14 +155,15 @@ h1 {
 				$("#comment_list").children().remove();
 				
 				if(result.code=="success") {//검색된 댓글정보가 있는 경우
-					$(result.data).each(function() {
+					$(result.data).each(function() { //each 를 사용하여 객체단위로 일괄 처리
 						//Array 객체의 요소값(Object 객체 - 댓글정보)을 HTML 태그로 변환
-						var html="<div class='comment' id='comment_"+this.num+"'>";//댓글태그
+						var html="<div class='comment' id='comment_"+this.num+"'>";//댓글태그 -> this 의 의미 : 이번 요청으로 반환받은 객체
+						//=> id = comment_숫자 의 형식
 						html+="<b>["+this.writer+"]</b><br>";//작성자
 						html+=this.content.replace(/\n/g,"<br>")+"<br>";//내용
 						html+="("+this.regdate+")<br>";//작성날짜
-						html+="<button type='button' onclick='modifyComment("+this.num+")'>댓글변경</button>&nbsp;";//변경버튼
-						html+="<button type='button' onclick='removeComment("+this.num+")'>댓글삭제</button>&nbsp;";//삭제버튼
+						html+="<button type='button' onclick='modifyComment("+this.num+")'>댓글변경</button>&nbsp;";//변경버튼 - 메서드로 생성
+						html+="<button type='button' onclick='removeComment("+this.num+")'>댓글삭제</button>&nbsp;";//삭제버튼 - 메서드로 생성
 						html+="</div>";
 						
 						//댓글목록태그에 댓글태그를 마지막 자식태그로 추가하여 출력 처리
@@ -243,14 +244,14 @@ h1 {
 	function modifyComment(num) {
 		//alert(num);
 		
-		init();
+		init(); //기존에 다른 댓글을 변경하려고 시도했던 경우가 있을 수 있으므로, 다른 게시글에서의 변경 태그를 숨기고 초기화함
 		
-		//댓글변경태그를 보여지도록 처리하고 댓글태그의 마지막 자식태그로 이동 
+		//초기화 된 댓글변경태그를 보여지도록 처리하고 댓글태그의 마지막 자식태그로 이동 
 		$("#comment_modify").show().appendTo("#comment_"+num);
 		
 		$.ajax({
 			type: "get",
-			url: "comment_get.jsp",
+			url: "comment_get.jsp", // comment_get.jsp를 통해 기존의 댓글 정보를 받아와 출력.
 			data: {"num":num},
 			dataType: "json",
 			success: function(result) {
