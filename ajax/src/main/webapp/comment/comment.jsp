@@ -314,7 +314,7 @@ h1 {
 	//댓글태그에서 [댓글삭제] 태그를 클릭한 경우 호출되는 이벤트 처리 함수
 	// => 댓글삭제태그를 댓글태그에 자식태그로 이동하여 출력 처리
 	function removeComment(num) {
-		init();
+		init(); //변경중이던 댓글변경창을 초기화하고 숨김 처리
 		
 		//댓글삭제태그를 보여지도록 처리하고 댓글태그의 마지막 자식태그로 이동 
 		$("#comment_remove").show().appendTo("#comment_"+num);
@@ -323,14 +323,35 @@ h1 {
 		$("#remove_num").val(num);
 	}
 	
-	//댓글삭제태그에서 [삭제] 태그를 클릭한 경우 호출되는 이벤트 처리 함수 등록
+ 	//댓글삭제태그에서 [삭제] 태그를 클릭한 경우 호출되는 이벤트 처리 함수 등록
 	// => 입력태그의 입력값(댓글번호)을 반환받아 AJAX_COMMENT 테이블에 저장된 댓글정보를 삭제하는 
 	//[comment_remove.jsp] 문서를 AJAX 기능으로 요청하고 실행결과를 JSON 데이타로 응답받아 처리
-	
+	$("#remove_btn").click(function(){
+		var num=$("#remove_num").val();
+		
+		$.ajax({
+			type: "get",
+			url: "comment_remove.jsp",
+			data: {"num":num},
+			dataType: "json",
+			success: function(result){
+				if(result.code=="success"){
+					init();
+					displayComment();
+				} else {
+					alert("삭제할 댓글이 존재하지 않습니다.");
+				}
+			},
+			error: function(xhr){
+				alert("error code="+xhr.status);
+			}
+			
+		});
+	});
 	
 	//댓글삭제태그에서 [취소] 태그를 클릭한 경우 호출되는 이벤트 처리 함수 등록
-	
-	
+	$("#remove_cancel_btn").click(init);
+ 
 	</script>
 </body>
 </html>
