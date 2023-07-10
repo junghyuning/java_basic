@@ -61,7 +61,7 @@ public class ControllerServlet extends HttpServlet {
 		
 		//클라이언트 요청정보를 구분하여 요청을 처리하기 위한 모델 역할의 클래스로 객체를 
 		//생성하여 인터페이스 참조변수에  저장
-		if(command.equals("/loginform.do")) { //요청을 보낸 url
+		if(command.equals("/loginform.do")) { //요청을 보낸 url 
 			//해당 url에 해당하는 컨트롤러를 인터페이스의 참조변수에 저장 -> 다형성 -> 인터페이스의 메서드 사용 가능
 			action=new LoginFormModel(); 
 		} else if(command.equals("/login.do")) {
@@ -80,7 +80,7 @@ public class ControllerServlet extends HttpServlet {
 		
 		//인터페이스 참조변수로 추상메소드를 호출하면 참조변수에 저장된 모델 객체의 요청 
 		//처리 메소드를 호출하고 뷰 관련 정보를 반환받아 저장 -  오버라이드의 의한 다형성
-		//=> action.execute(req, res) -> action변수에 저장된 컨트롤러객체에 정의된 페이지 이동 방식 및 경로를 저장한 actionforward 객체를 반환하는 메서드
+		//=> action.execute(req, res) -> action변수에 저장된 모델객체에 정의된 페이지 이동 방식 및 경로를 저장한 actionforward 객체를 반환하는 메서드
 		ActionForward actionForward=action.execute(request, response);
 		
 		//4.응답 관련 정보가 저장된 ActionForward 객체를 이용하여 응답 처리

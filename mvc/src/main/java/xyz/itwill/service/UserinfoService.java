@@ -29,14 +29,14 @@ public class UserinfoService {
 	}
 	
 	//회원정보를 전달받아 USERINFO 테이블에 회원정보를 삽입하는 메소드
-	// => 매개변수로 전달받은 회원정보의 아이디가 USERINFO 테이블에 저장된 기존 회원정보의
+	// => 매개변수로 전달받은 회원정보의 아이디가 USERINFO 테이블에 저장된 기존 회원정보의매
 	//아이디와 중복될 경우 인위적 예외 발생
 	public void addUserinfo(UserinfoDTO userinfo) throws SQLException, ExistsUserinfoException {
-		if(UserinfoModelTwoDAO.getDAO().selectUserinfo(userinfo.getUserid())!=null) {
+		if(UserinfoModelTwoDAO.getDAO().selectUserinfo(userinfo.getUserid())!=null) { //이미 가입된 id 인 경우
 			//사용자 정의 예외클래스를 이용하여 인위적 예외 발생
 			throw new ExistsUserinfoException("이미 사용중인 아이디를 입력 하였습니다.");
 		}
-		UserinfoModelTwoDAO.getDAO().insertUserinfo(userinfo);
+		UserinfoModelTwoDAO.getDAO().insertUserinfo(userinfo); //존재하지 않는 id 인 경우 -> 새로운 회원 정보를 삽입
 	}
 	
 	//회원정보를 전달받아 USERINFO 테이블에 저장된 회원정보를 변경하는 메소드

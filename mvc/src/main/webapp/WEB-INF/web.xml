@@ -6,17 +6,14 @@
    <servlet-class>xyz.itwill.mvc.ControllerServlet</servlet-class>
   </servlet>
   
+  <!-- *.do로 들어오는 요청은 모두 servlet-name이 controller인 xyz.itwill.mvc.ControllerServlet에 매핑되어 요청이 들어가게 됨  -->
   <servlet-mapping>
   <servlet-name>controller</servlet-name>
   <url-pattern>*.do</url-pattern>
   </servlet-mapping>
   
   
-  
-  
-  
-  
-  
+
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>
