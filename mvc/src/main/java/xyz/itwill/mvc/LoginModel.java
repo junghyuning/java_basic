@@ -44,7 +44,8 @@ public class LoginModel implements Action {
 			HttpSession session=request.getSession();
 			//Session Scope : 동일한 세션을 바인딩하여 사용하는 모든 웹프로그램에서 속성값을 객체로 반환받아 사용 가능
 			// => 웹브라우저가 종료되면 클라이언트의 정보로 바인딩 세션은 자동으로 삭제 처리
-			session.setAttribute("loginUserinfo", UserinfoService.getService().getUserinfo(userid));
+			session.setAttribute("loginUserinfo", UserinfoService.getService().getUserinfo(userid)); 
+			//로그인 성공시, userid를 매개변수로 받아 ->  사용자를 검색하여 userinfoDTO를 반환하는 메서드
 			
 			actionForward.setForward(false);
 			actionForward.setPath(request.getContextPath()+"/loginform.do");

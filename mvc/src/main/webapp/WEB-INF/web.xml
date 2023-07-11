@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  
+  
+  
   <display-name>mvc</display-name>
   <servlet>
     <servlet-name>controller</servlet-name>
    <servlet-class>xyz.itwill.mvc.ControllerServlet</servlet-class>
+   <init-param>
+   		<param-name>configFile</param-name>
+   		<param-value>/WEB-INF/model.priperties</param-value>
+   </init-param>
+   <!-- load-on-startup : 클라이언트 요청 없이 서블릿 클래스를 객체로 생성하기 위한 엘리먼트 -->
+   <!-- => WAS 프로그램 프로그램이 실행될 때 서블릿 클래스로 객체를 미리 생성 -->
+   <!-- => 서블릿 객체가 먼저 생성되고 init() 메서드가 자동 호출되어 초기화 작업 수행 -->
+   <!-- => 엘리먼트의 값은 0이상의 정수값으로 설정 - 정수값이 작을수록 서블릿 객체로 먼저 생성 -->
+   <load-on-startup>1</load-on-startup>
   </servlet>
   
   <!-- *.do로 들어오는 요청은 모두 servlet-name이 controller인 xyz.itwill.mvc.ControllerServlet에 매핑되어 요청이 들어가게 됨  -->

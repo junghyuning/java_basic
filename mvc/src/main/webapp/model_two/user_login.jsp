@@ -8,16 +8,16 @@
 <%-- => [로그아웃] 태그를 클릭한 경우 [/logout.do] 페이지 요청 --%>
 <%-- => [회원등록] 태그를 클릭한 경우 [/writeform.do] 페이지 요청 - 관리자에게만 링크 제공 --%>
 <%
-	UserinfoDTO loginUserinfo=(UserinfoDTO)session.getAttribute("loginUserinfo");
+	UserinfoDTO loginUserinfo=(UserinfoDTO)session.getAttribute("loginUserinfo"); //null일경우, 비로그인 사용자
 
 	String message=(String)session.getAttribute("message");
-	if(message==null) {
+	if(message==null) { //경고 메세지
 		message="";
 	} else {
 		session.removeAttribute("message");
 	}
 	
-	String userid=(String)session.getAttribute("userid");
+	String userid=(String)session.getAttribute("userid"); // 기존에 자신이 적었던 id정보
 	if(userid==null) {
 		userid="";
 	} else {
@@ -44,7 +44,8 @@ function userLogin() {
 		f.password.focus();
 		return;
 	}	
-	
+	/* form 태그의 action 속성은 일반적으로 URL 을 사용하여 서버로 데이터를 전송함.
+	[/login.do] = [loginModel.jsp]*/
 	f.action = "<%=request.getContextPath() %>/login.do"; 
 	f.submit();
 }
