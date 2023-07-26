@@ -8,7 +8,7 @@ public class MessageObjectFactory {
 	public static final int HELLO_MSG=1;
 	public static final int HI_MSG=2;
 	
-	//매개변수에 전달된 값을 비교하여 필요한 객체르 생성하여 반환하는 메서드
+	//매개변수에 전달된 값을 비교하여 필요한 객체를 생성하여 반환하는 메서드
 	public static MessageObject getMessageObject(int messageObject) {
 		MessageObject object = null;
 		switch (messageObject) {
