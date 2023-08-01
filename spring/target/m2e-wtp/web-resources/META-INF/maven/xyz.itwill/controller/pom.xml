@@ -36,6 +36,22 @@
 	<!-- dependencies : dependency 엘리먼트를 등록하기 위한 엘리먼트 -->
 	<dependencies>
 
+		<!-- Spring-Context의 확장기능 제공 : 메일을 보내거나 받는 기능 -->
+		<!--https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<!-- 메일기능 -->
+		<!-- https://mvnrepository.com/artifact/com.sun.mail/javax.mail -->
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>1.6.2</version>
+		</dependency>
+
 
 		<!-- Spring -->
 		<!-- => Spring 프레임워크를 -->
