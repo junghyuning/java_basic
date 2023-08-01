@@ -3,24 +3,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	MyComment1 comment3 = new MyComment1();
-	comment3.setCommentId("opq"); 
-	comment3.setCommentContent("세번째 게시글 입니다.");
-	MyCommentDAO.getCommentDAO().insertComment(comment3);
-	MyComment1 comment4 = new MyComment1();
-	comment4.setCommentId("abc"); 
-	comment4.setCommentContent("네번째 게시글 입니다.");
-	MyCommentDAO.getCommentDAO().insertComment(comment4);
+	MyComment1 comment3=new MyComment1();
+	comment3.setCommentId("opq");
+	comment3.setCommentContent("셋번째 게시글입니다.");
+	MyCommentDAO.getDAO().insertComment2(comment3);
+	
+	MyComment1 comment4=new MyComment1();
+	comment4.setCommentId("abc");
+	comment4.setCommentContent("네번째 게시글입니다.");
+	MyCommentDAO.getDAO().insertComment2(comment4);
 %>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Mybatis</title>
+<title>MYBATIS</title>
 </head>
 <body>
 	<h1>게시글 등록</h1>
 	<hr>
-	<p> 게시글 등록이 성공하였습니다.</p>
+	<h3>게시글이 성공적으로 삽입 되었습니다.</h3>
 </body>
 </html>
