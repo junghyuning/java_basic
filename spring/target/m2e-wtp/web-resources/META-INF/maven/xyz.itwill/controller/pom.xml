@@ -36,6 +36,22 @@
 	<!-- dependencies : dependency 엘리먼트를 등록하기 위한 엘리먼트 -->
 	<dependencies>
 
+		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc11 -->
+		<!-- => Oracle DBMS Server를 사용하기 위한 Oracle Driver 관련 기능을 제공하는 라이브러리-->
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc11</artifactId>
+			<version>23.2.0.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>5.3.29</version>
+		</dependency>
+
+
 		<!-- Spring-Context의 확장기능 제공 : 메일을 보내거나 받는 기능 -->
 		<!--https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
 		<dependency>

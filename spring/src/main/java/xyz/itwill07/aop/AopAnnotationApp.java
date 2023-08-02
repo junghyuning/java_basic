@@ -13,6 +13,7 @@ public class AopAnnotationApp {
 		bean.display2();
 		System.out.println("==========================================================");
 		bean.display3();
+		new RuntimeException();//인위적 오류 발생 -> AfterThrowing 메서드 실행 (Returning은 미실행)
 		System.out.println("==========================================================");
 		((ClassPathXmlApplicationContext)context).close();
 	}

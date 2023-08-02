@@ -12,7 +12,10 @@
 	<bean class="xyz.itwill07.aop.JoinPointAdvice" id="joinPointAdvice"/>
 	
 	<aop:config>
+		<!-- 주입하고자하는 메서드가 존재하는 클래스 -->
 		<aop:aspect ref="joinPointAdvice">
+			<!-- 주입하고자하는 메서드 및 횡단관심모듈의 메서드를 주입당할 메서드 -->
+			<!-- 핵심관심 클래스의 패키지 및 클래스 정보가 존재하지 않는다면  -->
 			<aop:before method="beforeDisplay" pointcut="execution(* *(..))"/>
 			<aop:after method="displayMessage" pointcut="execution(void remove(int))"/>
 			<!-- returning 속성 : 타겟메소드의 반환값을 전달받아 저장하기 위한 After 
