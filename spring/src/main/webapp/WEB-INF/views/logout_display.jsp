@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Spring</title>
+<title>SPRING</title>
 </head>
 <body>
-	<h1>출력페이지</h1>
+	<h1>로그아웃</h1>
 	<hr>
-	<h2>이름 = ${name}</h2>
-	<h2>날짜 = ${now}</h2>
+	<h2>로그아웃 처리 되었습니다.</h2>
+	<a href="login">로그인</a>
 </body>
 </html>
