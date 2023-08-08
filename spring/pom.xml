@@ -35,59 +35,8 @@
 
 	<!-- dependencies : dependency 엘리먼트를 등록하기 위한 엘리먼트 -->
 	<dependencies>
-
-		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
-		<!-- myBaits 프레임워크를 사용하기위한 라이브러리 -->
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis</artifactId>
-			<version>3.5.13</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
-		<!-- => Spring 프레임워크에서 Mybatis 프레임워크 기능을 제공하기위한 라이브러리-->
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis-spring</artifactId>
-			<version>3.0.2</version>
-		</dependency>
-
-
-		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc11 -->
-		<!-- => Oracle DBMS Server를 사용하기 위한 Oracle Driver 관련 기능을 제공하는 라이브러리-->
-		<dependency>
-			<groupId>com.oracle.database.jdbc</groupId>
-			<artifactId>ojdbc11</artifactId>
-			<version>23.2.0.0</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
-			<version>5.3.29</version>
-		</dependency>
-
-
-		<!-- Spring-Context의 확장기능 제공 : 메일을 보내거나 받는 기능 -->
-		<!--https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context-support</artifactId>
-			<version>${org.springframework-version}</version>
-		</dependency>
-
-		<!-- 메일기능 -->
-		<!-- https://mvnrepository.com/artifact/com.sun.mail/javax.mail -->
-		<dependency>
-			<groupId>com.sun.mail</groupId>
-			<artifactId>javax.mail</artifactId>
-			<version>1.6.2</version>
-		</dependency>
-
-
 		<!-- Spring -->
-		<!-- => Spring 프레임워크를 -->
+		<!-- => Spring 프레임워크를 이용하여 프로그램을 작성하기 위해 필요한 기능을 제공하는 라이브러리 -->
 		<!-- dependency : 라이브러리 파일을 제공받아 프로젝트에 빌드 처리하기 위한 엘리먼트 -->
 		<!-- => 라이브러리 의존 관계에 의해 다른 라이브러리 파일을 프로젝트에 자동으로 빌드 처리 - 의존 전이(Transitive
 		Dependencies) -->
@@ -114,7 +63,9 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 
-		<!-- AspectJ -->
+		<!-- AspectJ => Spring AOP 기능을 제공하기 위한 라이브러리 -->
+		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
+		<!-- => AspectJ 컴파일러로 생성된 Proxy 클래스를 실행하기 위한 라이브러리 -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
@@ -122,6 +73,9 @@
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+		<!-- => AspectJ 컴파일러로 핵심관심코드와 횡단관심코드가 결합된 클래스(Proxy 클래스)를
+		생성하기 위한
+		라이브러리 -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
@@ -129,9 +83,8 @@
 			<scope>runtime</scope>
 		</dependency>
 
-
 		<!-- Logging -->
-		<!-- => 로그 구현체 기능을 제공하기 위한 라이브러리-->
+		<!-- => 로그 관련 기능을 제공하기 위한 라이브러리 -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -176,6 +129,7 @@
 		</dependency>
 
 		<!-- @Inject -->
+		<!-- => 의존성 주입 기능을 제공하기 위한 라이브러리 -->
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
@@ -183,6 +137,7 @@
 		</dependency>
 
 		<!-- Servlet -->
+		<!-- => 웹프로그램 작성에 필요한 기능을 제공하기 위한 라이브러리 -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -202,25 +157,26 @@
 		</dependency>
 
 		<!-- Test -->
+		<!-- => 테스트 기능을 제공하기 위한 라이브러리 -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.13.2</version>
-			<scope>test</scope>
+			<!--<scope>test</scope>-->
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/xerces/xercesImpl -->
-		<!-- => 로그 구현체가 환경설정파일을 읽어 실행할 때 파일 경로에 인식할 수 없는 문자가
-		존재하면 예외 발생 - 파일
-		경로를 부호화 처리하는 기능을 제공하는 라이브러리 -->
+		<!-- => 로그 구현체가 환경설정파일(log4j.xml)을 읽어 실행할 때 파일 경로에 인식할 수
+		 없는 문자가 존재하면
+		예외 발생 - 파일 경로를 부호화 처리하는 기능을 제공하는 라이브러리 -->
 		<dependency>
 			<groupId>xerces</groupId>
 			<artifactId>xercesImpl</artifactId>
 			<version>2.12.2</version>
 		</dependency>
 
-		<!-- -->
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+		<!-- => 클래스 작성에 필요한 메소드를 자동으로 생성하여 제공하는 라이브러리 -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -228,6 +184,71 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!--
+		https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+		<!-- => Spring Context의 확장 기능을 제공하는 라이브러리 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.sun.mail/javax.mail -->
+		<!-- => Java Mail 기능을 제공하는 라이브러리 -->
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>1.6.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc11 -->
+		<!-- => Oracle DBMS Server를 사용하기 위한 Oracle Driver 관련 기능을 제공하는 라이브러리 -->
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc11</artifactId>
+			<version>23.2.0.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+		<!-- => SpringDAO 관련 기능을 제공하는 라이브러리 - DataSource 관련 클래스 제공 -->
+		<!-- => 라이브러리 의존 관계에 의해 spring-tx 라이브러리(트렌젝션 처리) 빌드 처리 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+		<!-- => Mybatis 프레임워크 기능을 제공하기 위한 라이브러리  -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.5.13</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+		<!-- => Spring 프레임워크에서 Mybatis 프레임워크 기능을 제공하기 위한 라이브러리  -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>3.0.2</version>
+		</dependency>
+
+		<!--
+		https://mvnrepository.com/artifact/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4 -->
+		<dependency>
+			<groupId>org.bgee.log4jdbc-log4j2</groupId>
+			<artifactId>log4jdbc-log4j2-jdbc4</artifactId>
+			<version>1.16</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework-version}</version>
+			<!--<scope>test</scope>-->
+		</dependency>
 
 	</dependencies>
 

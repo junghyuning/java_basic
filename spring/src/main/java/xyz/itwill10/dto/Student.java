@@ -1,5 +1,6 @@
 package xyz.itwill10.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
 /*
@@ -11,6 +12,7 @@ PHONE             VARCHAR2(20)
 ADDRESS           VARCHAR2(100) 
 BIRTHDAY          DATE  
 */
+@Builder
 @Data
 public class Student {
 	private int no;
