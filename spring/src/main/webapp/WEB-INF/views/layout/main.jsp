@@ -1,12 +1,3 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>SPRING</title>
-</head>
-<body>
-
-</body>
-</html>
+<h1>몸체부</h1>

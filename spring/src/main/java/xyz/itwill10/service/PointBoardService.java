@@ -8,5 +8,5 @@ import xyz.itwill10.dto.PointUser;
 public interface PointBoardService {
 	PointUser addPointBoard(PointBoard board) throws Exception;
 	PointUser removePointBoard(int idx) throws Exception;
-	List<PointBoard> getPointBoardList() throws Exception;
+	List<PointBoard> getPointBoardList();
 }
