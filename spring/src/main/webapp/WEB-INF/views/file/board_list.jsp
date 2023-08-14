@@ -21,6 +21,10 @@ th, td {
 <body>
 	<h1>자료실(출력페이지)</h1>
 	<hr>
+	<p>
+		<button type="button" onclick="location.href='<c:url value="/file/write"/>';">업로드</button>
+	</p> 
+	
 	<table>
 		<tr>
 			<th width="50">번호</th>
@@ -31,35 +35,62 @@ th, td {
 			<th width="100">삭제</th>
 		</tr>
 		
+		<%-- 게시글 목록 출력 --%>
 		<c:forEach var="fileBoard" items="${fileBoardList }">
 		<tr>
-			<td align="center">${fileBoard.num }</td>
+			<td align="center">${fileBoard.idx }</td>
 			<td align="center">${fileBoard.writer }</td>
 			<td>${fileBoard.subject }</td>
 			<td>${fileBoard.origin }</td>
 			<td align="center">
-				<button type="button" onclick="fileDownload(${fileBoard.num });">다운로드</button> 
+				<button type="button" onclick="fileDownload(${fileBoard.idx });">다운로드</button> 
 			</td>
 			<td align="center">
-				<button type="button" onclick="fileDelete(${fileBoard.num });">삭제</button> 
+				<button type="button" onclick="fileDelete(${fileBoard.idx });">삭제</button> 
 			</td>
 		</tr>
 		</c:forEach>
 	</table>
+
+	<%-- 페이지 번호 출력 --%>
+	<c:choose>
+		<c:when test="${pager.startPage > pager.blockSize }">
+			<a href="<c:url value="/file/list"/>?pageNum=${pager.prevPage}">[이전]</a>
+		</c:when>
+		<c:otherwise>
+			[이전]
+		</c:otherwise>
+	</c:choose>	
 	
-	<p>
-		<button type="button" onclick="location.href='${pageContext.request.contextPath}/fileboard/write';">업로드</button>
-	</p> 
+	<c:forEach var="i" begin="${pager.startPage }" end="${pager.endPage }" step="1">
+		<c:choose>
+			<c:when test="${pager.pageNum != i  }">
+				<a href="<c:url value="/file/list"/>?pageNum=${i}">[${i }]</a>
+			</c:when>
+			<c:otherwise>
+				[${i }]
+			</c:otherwise>
+		</c:choose>	
+	</c:forEach>
+
+	<c:choose>
+		<c:when test="${pager.endPage != pager.totalPage }">
+			<a href="<c:url value="/file/list"/>?pageNum=${pager.nextPage}">[다음]</a>
+		</c:when>
+		<c:otherwise>
+			[다음]
+		</c:otherwise>
+	</c:choose>	
 	
 	<script type="text/javascript">
-	function fileDownload(num) {
-		//URL 주소를 이용하여 자료실 번호 전달
-		location.href="${pageContext.request.contextPath}/fileboard/download/"+num;
+	function fileDownload(idx) { 
+		//질의문자열를 이용하여 자료실 번호 전달
+		location.href="<c:url value="/file/download"/>?idx="+idx;
 	}
 	
-	function fileDelete(num) {
+	function fileDelete(idx) {
 		if(confirm("자료를 정말로 삭제 하시겠습니까?")) {
-			location.href="${pageContext.request.contextPath}/fileboard/delete/"+num;
+			location.href="<c:url value="/file/delete"/>?idx="+idx;
 		} 
 	}
 	</script>
