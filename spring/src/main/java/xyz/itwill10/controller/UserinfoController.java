@@ -110,9 +110,7 @@ public class UserinfoController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@ModelAttribute Userinfo userinfo, HttpSession session) throws LoginAuthFailException {
 		Userinfo authUserinfo=userinfoService.loginAuth(userinfo);
-		System.out.println("aaa ");
 		session.setAttribute("loginUserinfo", authUserinfo);
-		System.out.println("bbb ");
 		return "userinfo/user_login";
 	}
 	
