@@ -49,7 +49,8 @@ public class FileController {
 		//MultipartHttpServletRequest.getParameter(String name) : 전달값을 문자열(String 객체)로 반환하는 메소드
 		String uploaderName=request.getParameter("uploaderName");
 		
-		//MultipartHttpServletRequest.getFile(String name) : 전달파일을 MultipartFile 객체로 반환하는 메소드
+		//MultipartHttpServletRequest.getFile(String name
+ : 전달파일을 MultipartFile 객체로 반환하는 메소드
 		// => MultipartFile 객체 : 사용자로부터 입력되어 전달된 파일정보를 저장하기 위한 객체
 		MultipartFile uploadFile=request.getFile("uploadFile");
 		
