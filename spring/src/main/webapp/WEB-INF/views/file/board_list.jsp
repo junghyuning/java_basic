@@ -6,93 +6,241 @@
 <head>
 <meta charset="UTF-8">
 <title>SPRING</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <style type="text/css">
-table {
-	border: 1px solid black;
-	border-collapse: collapse;
+#btnDiv {
+	margin: 10px;
 }
 
-th, td {
+#restBoardTable {
 	border: 1px solid black;
-	padding: 2px;
+	border-collapse: collapse; 
+}
+
+#restBoardTable td, #restBoardTable th {
+	border: 1px solid black;
+	padding: 3px;
+}
+
+.inputDiv {
+	width: 240px;
+	height: 80px;
+	border: 2px solid black;
+	background-color: gray;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -40px;
+	margin-left: -120px;
+	padding: 5px;
+	z-index: 100;
+	display: none;
 }
 </style>
 </head>
 <body>
-	<h1>자료실(출력페이지)</h1>
+	<h1>RestBoard</h1>
 	<hr>
-	<p>
-		<button type="button" onclick="location.href='<c:url value="/file/write"/>';">업로드</button>
-	</p> 
+	<div id="btnDiv">
+		<button type="button" id="writeBtn">글쓰기</button>
+	</div>
 	
-	<table>
-		<tr>
-			<th width="50">번호</th>
-			<th width="100">작성자</th>
-			<th width="300">제목</th>
-			<th width="350">파일명</th>
-			<th width="100">다운로드</th>
-			<th width="100">삭제</th>
-		</tr>
-		
-		<%-- 게시글 목록 출력 --%>
-		<c:forEach var="fileBoard" items="${fileBoardList }">
-		<tr>
-			<td align="center">${fileBoard.idx }</td>
-			<td align="center">${fileBoard.writer }</td>
-			<td>${fileBoard.subject }</td>
-			<td>${fileBoard.origin }</td>
-			<td align="center">
-				<button type="button" onclick="fileDownload(${fileBoard.idx });">다운로드</button> 
-			</td>
-			<td align="center">
-				<button type="button" onclick="fileDelete(${fileBoard.idx });">삭제</button> 
-			</td>
-		</tr>
-		</c:forEach>
-	</table>
+	<%-- 게시글 목록을 출력하는 태그 --%>
+	<div id="restBoardListDiv"></div>
 
-	<%-- 페이지 번호 출력 --%>
-	<c:choose>
-		<c:when test="${pager.startPage > pager.blockSize }">
-			<a href="<c:url value="/file/list"/>?pageNum=${pager.prevPage}">[이전]</a>
-		</c:when>
-		<c:otherwise>
-			[이전]
-		</c:otherwise>
-	</c:choose>	
+	<%-- 페이지 번호를 출력하는 태그 --%>
+	<div id="pageNumDiv"></div>
 	
-	<c:forEach var="i" begin="${pager.startPage }" end="${pager.endPage }" step="1">
-		<c:choose>
-			<c:when test="${pager.pageNum != i  }">
-				<a href="<c:url value="/file/list"/>?pageNum=${i}">[${i }]</a>
-			</c:when>
-			<c:otherwise>
-				[${i }]
-			</c:otherwise>
-		</c:choose>	
-	</c:forEach>
-
-	<c:choose>
-		<c:when test="${pager.endPage != pager.totalPage }">
-			<a href="<c:url value="/file/list"/>?pageNum=${pager.nextPage}">[다음]</a>
-		</c:when>
-		<c:otherwise>
-			[다음]
-		</c:otherwise>
-	</c:choose>	
+	<%-- 신규 게시글을 입력받기 위한 태그 --%>
+	<div id="insertDiv" class="inputDiv">
+		<table>
+			<tr>
+				<td>작성자</td>
+				<td><input type="text" id="insertWriter" class="insert"></td>
+			</tr>
+			<tr>
+				<td>내용</td>
+				<td><input type="text" id="insertContent" class="insert"></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<button type="button" id="insertBtn">저장</button>
+					<button type="button" id="cancelInsertBtn">취소</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	<%-- 변경 게시글을 입력받기 위한 태그 --%>
+	<div id="updateDiv" class="inputDiv">
+		<input type="hidden" id="updateNum">
+		<table>
+			<tr>
+				<td>작성자</td>
+				<td><input type="text" id="updateWriter" class="update"></td>
+			</tr>
+			<tr>
+				<td>내용</td>
+				<td><input type="text" id="updateContent" class="update"></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<button type="button" id="updateBtn">변경</button>
+					<button type="button" id="cancelUpdateBtn">취소</button>
+				</td>
+			</tr>
+		</table>
+	</div>
 	
 	<script type="text/javascript">
-	function fileDownload(idx) { 
-		//질의문자열를 이용하여 자료실 번호 전달
-		location.href="<c:url value="/file/download"/>?idx="+idx;
+	//현재 요청 페이지 번호를 저장하기 위한 전역변수
+	// => 모든 함수에서 사용 가능하며 프로그램 종료 전까지 값 유지
+	var page=1;
+
+	//게시글 목록을 제공받아 출력하는 함수 호출
+	boardListDisplay(page);
+	
+	//매개변수로 요청 페이지 번호을 전달받아 페이지 번호에 대한 게시글 목록을 JSON 형식의 
+	//문자열로 제공받아 HTML 태그로 변환하여 출력하는 함수
+	// => 게시글 목록을 JSON 형식의 문자열로 제공하는 Restful API를 비동기식으로 요청하여 응답받아 처리
+	function boardListDisplay(pageNum) {
+		page=pageNum;
+		$.ajax({
+			type: "get",
+			url: "<c:url value="/rest/board_list"/>",
+			data: {"pageNum":pageNum},		
+			dataType: "json",
+			success: function(result) {
+				//alert(result);//[object Object] >> Map 객체가 변환되어 응답된 결과
+				
+				//매개변수로 제공받은 자바스크립트의 Object 객체를 HTML 태그로 변환
+				if(result.restBoardList.length == 0) {//검색된 게시글이 없는 경우
+					var html="<table id='restBoardTable'>";
+					html+="<tr>";
+					html+="<th width='800'>검색된 게시글이 없습니다.</th>";
+					html+="</tr>";
+					html+="</table>";
+					$("#restBoardListDiv").html(html);
+					return;
+				}
+				
+				var html="<table id='restBoardTable'>";
+				html+="<tr>";
+				html+="<th width='50'>번호</th>";
+				html+="<th width='100'>작성자</th>";
+				html+="<th width='350'>내용</th>";
+				html+="<th width='200'>작성일</th>";
+				html+="<th width='50'>변경</th>";
+				html+="<th width='50'>삭제</th>";
+				html+="</tr>";
+				$(result.restBoardList).each(function() {//게시글 목록(Array 객체)에 대한 반복 처리
+					html+="<tr>";
+					html+="<td align='center'>"+this.idx+"</td>";
+					html+="<td align='center'>"+this.writer+"</td>";
+					html+="<td>"+this.content+"</td>";
+					html+="<td align='center'>"+this.regdate+"</td>";
+					html+="<td align='center'><button type='button'>변경</button></td>";
+					html+="<td align='center'><button type='button'>삭제</button></td>";
+					html+="</tr>";
+				});
+				html+="</table>";
+
+				$("#restBoardListDiv").html(html);
+				
+				//페이지 번호를 출력하는 함수 호출
+				pageNumDisplay(result.pager);
+			},
+			error: function(xhr) {
+				alert("에러코드(게시글 목록 검색) = "+xhr.stauts);
+			}
+		});
 	}
 	
-	function fileDelete(idx) {
-		if(confirm("자료를 정말로 삭제 하시겠습니까?")) {
-			location.href="<c:url value="/file/delete"/>?idx="+idx;
-		} 
+	//매개변수로 페이징 처리 관련 정보(Object 객체)를 전달받아 HTML 태그로 변환하여 출력하는 함수
+	function pageNumDisplay(pager) {
+		var html="";
+		
+		if(pager.startPage > pager.blockSize) {
+			html+="<a href='javascript:boardListDisplay("+pager.prevPage+");'>[이전]</a>";
+		} else {
+			html+="[이전]";
+		}
+		
+		for(i = pager.startPage ; i <= pager.endPage ; i++) {
+			if(pager.pageNum != i) {
+				html+="<a href='javascript:boardListDisplay("+i+");'>["+i+"]</a>";
+			} else {
+				html+="["+i+"]";
+			}
+		}
+		
+		if(pager.endPage != pager.totalPage) {
+			html+="<a href='javascript:boardListDisplay("+pager.nextPage+");'>[다음]</a>";
+		} else {
+			html+="[다음]";
+		}
+		
+		$("#pageNumDiv").html(html);
 	}
+	
+	//[글쓰기] 태그를 클릭한 경우 호출되는 이벤트 처리 함수 등록
+	$("#writeBtn").click(function() {
+		//변경 게시글을 입력받기 위한 태그 초기화
+		$(".update").val("");//입력태그 초기화
+		$("#updateDiv").hide();//태그 숨김
+		
+		//신규 게시글을 입력받기 위한 태그 출력
+		$("#insertDiv").show();
+	});
+	
+	//신규 게시글을 입력받기 위핸 태그에서 [저장] 태그를 클릭한 경우 호출되는 이벤트 처리 함수 등록
+	// => 사용자 입력값을 반환받아 RESTBOARD 테이블에 삽입 처리하는 Restful API를 비동기식을 요청하여
+	//실행결과를 제공받아 출력 처리
+	$("#insertBtn").click(function() {
+		var writer=$("#insertWriter").val();
+		var content=$("#insertContent").val();
+		
+		if(writer == "") {
+			alert("작성자를 입력해 주세요.");
+			return;
+		}
+		
+		if(content == "") {
+			alert("내용을 입력해 주세요.");
+			return;
+		}
+		
+		$.ajax({
+			type: "post",
+			url: "<c:url value="/rest/board_add"/>",
+			//headers : 요청정보가 저장된 리퀘스트 메세지의 머릿부(Header)를 변경하기 위한 속성
+			// => 리퀘스트 메세지 몸체부에 저장되어 전달될 값의 파일형식(MimeType)을 변경
+			//headers: {"contentType":"application/json"},
+			//contentType : 리퀘스트 메세지 몸체부에 저장되어 전달될 값의 파일형식(MimeType)을 변경하기 위한 속성
+			// => 리퀘스트 메소드 몸체부에 JSON 형식의 문자열로 값 전달
+			// => 요청 처리 메소드의 매개변수에서 @RequestBody 어노테이션을 사용하여 JSON 형식의
+			//문자열을 Java 객체로 전달받아 사용 - 값을 Java 객체의 필드값으로 저장되어 제공
+			contentType: "application/json",
+			//JSON.stringify(object) : 자바스트립트 객체를 JSON 형식의 문자값으로 변환하여 반환하는 메소드
+			data: JSON.stringify({"writer":writer, "content":content}),
+			dateType: "text",
+			success: function(result) {
+				if(result == "success") {
+					//신규 게시글을 입력받기 위한 태그 초기화
+					$(".insert").val("");//입력태그 초기화
+					$("#insertDiv").hide();//태그 숨김
+					
+					//게시글 목록을 제공받아 출력하는 함수 호출
+					boardListDisplay(page);
+				}
+			},
+			error: function(xhr) {
+				alert("에러코드(게시글 삽입) = "+xhr.stauts);
+			}
+		});
+	});
 	</script>
 </body>
 </html>
+
+

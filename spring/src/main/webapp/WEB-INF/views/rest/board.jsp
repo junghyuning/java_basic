@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,5 +91,33 @@
 			</tr>
 		</table>
 	</div>
+	<script type="text/javascript">
+		
+	var page=1;
+	
+	boardListDisplay(page);
+	
+	function boardListDisplay(pageNum) {
+		page=pageNum;
+		$.ajax({
+			type: "get",
+			url: "<c:url value="/rest/board_list"/>?pageNum"+pageNum,
+			dataType: "json",
+			success: function(result){
+				if(result.restBoardList.length==0){
+					var html = "<table id='restBoardTable'>";
+					html +="<tr>";
+					html +="<th width='800'>검색된 게시글이 없습니다.</th>";
+					html +="</tr>";
+					html +="</table>";
+					$("#restBoardListDiv").html(html);
+					return;
+					
+				}
+			}
+		});
+	}
+		
+	</script>
 </body>
 </html>
