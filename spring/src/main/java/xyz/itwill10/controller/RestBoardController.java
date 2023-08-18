@@ -27,6 +27,7 @@ import xyz.itwill10.service.RestBoardService;
 @RequestMapping("/rest")
 @RequiredArgsConstructor
 public class RestBoardController {
+
 	private final RestBoardService restBoardService;
 	
 	//페이지 번호를 전달받아 RESTBAORD 테이블에 저장된 게시글 중 페이지 번호에 출력될 게시글

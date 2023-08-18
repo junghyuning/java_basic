@@ -7,7 +7,7 @@
 		</selectKey>
 		insert into fileboard values(#{idx}, #{writer}, #{subject}, #{origin}, #{upload})
 	</insert>
-	
+	 
 	<delete id="deleteFileBoard">
 		delete from fileboard where idx=#{idx}
 	</delete>
